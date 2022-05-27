@@ -1,0 +1,58 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px    ;
+}
+
+body {
+    /*background: url(https://freellustrustrations.s3.us-east-2.amazonaws.com/free-images/freeimg_51228672freejpg850.jpg);*/
+    font-family: 'Lato', sans-serif;
+    background-image: url("/images/colors.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navContainer {
+    margin: 1rem;
+    padding: 1rem;
+}
+.links{
+    padding: 1rem;
+}
+.navbar {
+    border-radius: 1rem;
+}
+.containerCard {
+    color: cyan;
+    margin: 3rem;
+    margin-left:auto;   
+    width: 35%;
+    padding: 5%;
+    border: 5px solid orange;
+    background-color: #161743;
+    border-radius: 1rem;
+}
+
+label {
+    display: contents !important;
+}
+    
+h1 {
+    font-size: 350%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+h4 {
+    font-size: 120%;
+}
+
+h5 {
+    font-size: 100%;
+}
