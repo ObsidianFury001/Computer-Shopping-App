@@ -136,7 +136,7 @@
     <Content Include="images\logo.jpg" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
-    <Content Include="login.css" />
+    <Content Include="style.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

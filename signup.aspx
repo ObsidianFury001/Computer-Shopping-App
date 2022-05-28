@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />       
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <form id="form1" runat="server"><br />
-        <div class="containerCard">
+        <div class="containerCard w3-responsive">
             <div class="row">
                     <h2>Sign Up</h2>
             </div><br />
 
             <div class="row"> 
-                <h3>First Name</h3>
+                <h4>First Name</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox1" runat="server" cssclass="form-control" placeholder="First Name"></asp:TextBox>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="row"> 
-                <h3>Last Name</h3>
+                <h4>Last Name</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Last Name"></asp:TextBox>
@@ -42,7 +42,7 @@
             </div>
                 
             <div class="row"> 
-                <h3>Username</h3>
+                <h4>Username</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox3" runat="server" cssclass="form-control" placeholder="Username"></asp:TextBox>
@@ -54,7 +54,7 @@
             </div>
                 
             <div class="row"> 
-                <h3>Email</h3>
+                <h4>Email</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox4" runat="server" cssclass="form-control" placeholder="Email"></asp:TextBox>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="row"> 
-                <h3>Password</h3>
+                <h4>Password</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox5" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="row"> 
-                <h3>Phone</h3>
+                <h4>Phone</h4>
             </div>
             <div class="row"> 
                 <asp:TextBox ID="TextBox6" runat="server" cssclass="form-control" placeholder="Phone"></asp:TextBox>
@@ -92,11 +92,8 @@
             <br />
 
             <div class="row">
-                <asp:Button ID="Button1" runat="server" Text="Login" CssClass="rounded btn-primary btn-block btn-lg" OnClick="Button1_Click"/>
+                <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="rounded btn-primary btn-block btn-lg" OnClick="Button1_Click"/>
             </div><br />
-            <div class="row">
-                <asp:Label ID="MessageBox" runat="server" Text="Label"></asp:Label>
-            </div>
         </div>
     </form>
 </body>

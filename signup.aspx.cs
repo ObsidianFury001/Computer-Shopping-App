@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 
-
 namespace Project
 {
     public partial class signup : System.Web.UI.Page
@@ -15,7 +14,7 @@ namespace Project
         //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
