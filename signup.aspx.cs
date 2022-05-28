@@ -12,24 +12,31 @@ namespace Project
     public partial class signup : System.Web.UI.Page
     {
         const String connectionString = "server=localhost;user id=root;password=root;database=website";
+        //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            CreateNewUser();
+        }
+        void CreateNewUser()
         {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             try
             {
                 if (
-                    TextBox1.Text == "" ||
-                    TextBox2.Text == "" ||
-                    TextBox3.Text == "" ||
-                    TextBox4.Text == "" ||
-                    TextBox5.Text == "" ||
-                    TextBox6.Text == "")
-                    MessageBox.Text = "Please enter all details...";
+                      TextBox1.Text == "" ||
+                      TextBox2.Text == "" ||
+                      TextBox3.Text == "" ||
+                      TextBox4.Text == "" ||
+                      TextBox5.Text == "" ||
+                      TextBox6.Text == "")
+
+                    Response.Write("<script>alert('Please enter all details...');</script>");
+
                 else
                 {
                     String query = "INSERT INTO website.auth(first_name, last_name, username, email, password, phone) VALUES(\""
@@ -46,9 +53,9 @@ namespace Project
                     int val = mySqlCommand.ExecuteNonQuery();
 
                     if (val == 1)
-                        MessageBox.Text = "Sucessfully Signed Up!!!";
+                        Response.Write("<script>alert('Sucessfully Signed Up!!!');</script>");
                     else
-                        MessageBox.Text = "Error Occured!!!";
+                        Response.Write("<script>alert('Error Occured!!!');</script>");
 
                     TextBox1.Text = "";
                     TextBox2.Text = "";
@@ -57,15 +64,14 @@ namespace Project
                     TextBox5.Text = "";
                 }
             }
-            catch
+            catch (Exception Ex)
             {
-                MessageBox.Text = "Fatal Error Occured...";
+                Response.Write("<script>alert('Fatal Error Occured...'" + Ex.Message + "');</script>");
             }
             finally
             {
                 mySqlConnection.Close();
             }
         }
-
     }
 }

@@ -9,11 +9,10 @@ using System.Web.UI.WebControls;
 
 namespace Project
 {
-#pragma warning disable IDE1006 // Naming Styles
     public partial class login : System.Web.UI.Page
-#pragma warning restore IDE1006 // Naming Styles
     {
         const String connectionString = "server=localhost;user id=root;password=root;database=website";
+        //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,45 +20,63 @@ namespace Project
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            SignInUsingEmailAndPassword();
+        }
+        void SignInUsingEmailAndPassword()
+        {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             try
             {
                 String email = TextBox1.Text.Trim();
                 String password = TextBox2.Text.Trim();
-
                 if (String.IsNullOrEmpty(email) &&
                     String.IsNullOrEmpty(password))
-                    MessageBox.Text = "Please enter both email and password credentials.";
-
-                if (String.IsNullOrEmpty(email))
-                    MessageBox.Text = "Please enter the email.";
-
-                if (String.IsNullOrEmpty(password))
-                    MessageBox.Text = "Please enter the password.";
+                    Response.Write("<script>alert('Please enter both email and password credentials.');</script>");
+                else if (String.IsNullOrEmpty(email))
+                    Response.Write("<script>alert('Please enter the email.');</script>");
+                else if (String.IsNullOrEmpty(password))
+                    Response.Write("<script>alert('Please enter the password.');</script>");
                 else
                 {
                     String query = "SELECT * FROM website.auth where email = \"" + email + "\" && password = \"" + password + "\";";
+                    mySqlConnection.Open();
                     MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataSet dataSet = new DataSet();
-                    adapter.Fill(dataSet);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    //MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
-                    if (dataSet.Tables[0].Rows.Count == 1)
+                    // Dataset Method
+                    //DataSet dataSet = new DataSet();
+                    //adapter.Fill(dataSet, "auth");
+
+                    //if (dataSet.Tables["auth"].Rows.Count == 1)
+                    if (reader.HasRows)
                     {
-                        DateTime TimeNow = DateTime.Now; ;
-                        MessageBox.Text = "Sucessfully Signed In!!!";
+                        DateTime TimeNow = DateTime.Now;
+
+                        //MessageBox.Text = "Sucessfully Signed In!!!";
+                        while (reader.Read())
+                        {
+                            Response.Write("<script>alert('" +
+                                "Successfully Signed In! Welcome " +
+                                reader.GetValue(1).ToString() + " " +
+                                reader.GetValue(2).ToString() + "\\n" +
+                                reader.GetValue(3).ToString() + "\\n" +
+                                reader.GetValue(4).ToString() + "\\n" +
+                                reader.GetValue(5).ToString() + "\\n" +
+                                reader.GetValue(6).ToString() + "');</script>");
+                        }
 
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }
-                    else 
-                        MessageBox.Text = "Error Occured!!!";
+                    else
+                        Response.Write("<script>alert('Invalid Credentials!!!');</script>");
 
                 }
             }
-            catch
+            catch (Exception Ex)
             {
-                MessageBox.Text = "Fatal Error Occured...";
+                Response.Write("<script>alert(Fatal Error Occured'" + Ex.Message + "');</script>");
             }
             finally
             {

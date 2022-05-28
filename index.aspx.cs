@@ -8,10 +8,10 @@ using MySql.Data.MySqlClient;
 
 namespace Project
 {
-    public partial class index : System.Web.UI.Page
+#pragma warning disable IDE1006 // Naming Styles
+    public partial class index : Page
+#pragma warning restore IDE1006 // Naming Styles
     {
-        String connectionString = "server=localhost;user id=root;password=root;database=website";
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
