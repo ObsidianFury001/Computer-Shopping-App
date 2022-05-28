@@ -17,7 +17,9 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <div class="row">
+                <asp:Label ID="Label1" runat="server" Text="" CssClass="text-white"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

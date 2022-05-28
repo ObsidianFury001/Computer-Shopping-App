@@ -47,12 +47,15 @@ namespace Project
                         + TextBox6.Text.Trim() + "\");";
 
                     mySqlConnection.Open();
-                    Response.Write(query);
+                    //Response.Write(query);
                     MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
                     int val = mySqlCommand.ExecuteNonQuery();
 
                     if (val == 1)
+                    {
                         Response.Write("<script>alert('Sucessfully Signed Up!!!');</script>");
+                        Response.Redirect("login.aspx");
+                    }
                     else
                         Response.Write("<script>alert('Error Occured!!!');</script>");
 

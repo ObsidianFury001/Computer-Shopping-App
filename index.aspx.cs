@@ -14,7 +14,13 @@ namespace Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie authcookie = Request.Cookies["auth"]; 
+            if (authcookie == null)
+                Label1.Text = "Not Logged in";
+            else
+            {
+                Label1.Text = "Logged in with ID: " + authcookie.Value.ToString();
+            }
         }
     }
 }

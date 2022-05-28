@@ -13,6 +13,8 @@ namespace Project
     {
         const String connectionString = "server=localhost;user id=root;password=root;database=website";
         //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
+
+        HttpCookie authCookie;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -56,16 +58,32 @@ namespace Project
                         //MessageBox.Text = "Sucessfully Signed In!!!";
                         while (reader.Read())
                         {
-                            Response.Write("<script>alert('" +
-                                "Successfully Signed In! Welcome " +
-                                reader.GetValue(1).ToString() + " " +
-                                reader.GetValue(2).ToString() + "\\n" +
-                                reader.GetValue(3).ToString() + "\\n" +
-                                reader.GetValue(4).ToString() + "\\n" +
-                                reader.GetValue(5).ToString() + "\\n" +
-                                reader.GetValue(6).ToString() + "');</script>");
+                            Response.Write("<script>alert('Successfully Signed In!');</script>");
+
+                            //Response.Write("<script>alert('" +
+                            //    "Successfully Signed In! Welcome " +
+                            //    reader.GetValue(1).ToString() + " " +
+                            //    reader.GetValue(2).ToString() + "\\n" +
+                            //    reader.GetValue(3).ToString() + "\\n" +
+                            //    reader.GetValue(4).ToString() + "\\n" +
+                            //    reader.GetValue(5).ToString() + "\\n" +
+                            //    reader.GetValue(6).ToString() + "');</script>");
+
+                            // Login state management
+                            authCookie = new HttpCookie("auth");
+                            authCookie.Values["id"] = reader.GetValue(0).ToString();
+                            authCookie.Values["first_name"] = reader.GetValue(1).ToString();
+                            authCookie.Values["last_name"] = reader.GetValue(2).ToString();
+                            authCookie.Values["username"] = reader.GetValue(3).ToString();
+                            authCookie.Values["email"] = reader.GetValue(4).ToString();
+                            authCookie.Values["pass"] = reader.GetValue(5).ToString();
+                            authCookie.Values["phone"] = reader.GetValue(6).ToString();
+
+                            authCookie.Expires = DateTime.Now.AddMinutes(5);
+                            Response.Cookies.Add(authCookie);
                         }
 
+                        Response.Redirect("index.aspx");
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }
