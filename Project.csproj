@@ -127,11 +127,26 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="banners\1.jpg" />
+    <Content Include="banners\10.jpg" />
+    <Content Include="banners\11.jpg" />
+    <Content Include="banners\12.jpg" />
+    <Content Include="banners\13.jpg" />
+    <Content Include="banners\14.jpg" />
+    <Content Include="banners\15.jpg" />
+    <Content Include="banners\2.jpg" />
+    <Content Include="banners\3.jpg" />
+    <Content Include="banners\4.jpg" />
+    <Content Include="banners\5.jpg" />
+    <Content Include="banners\6.jpg" />
+    <Content Include="banners\7.jpg" />
+    <Content Include="banners\8.jpg" />
+    <Content Include="banners\9.jpg" />
     <Content Include="images\logo.gif" />
     <Content Include="images\logo2.jpg" />
-    <Content Include="images\products\mac.jpg" />
     <Content Include="index.aspx" />
     <Content Include="MasterPage.Master" />
+    <Content Include="Index.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\bloom.png" />
     <Content Include="images\circuit.jpg" />
@@ -209,6 +224,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.Master.cs">
+      <DependentUpon>Index.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.Master.designer.cs">
+      <DependentUpon>Index.Master</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -2,12 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 /*Archivo*/
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
-
 *{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
+/* Define the "system" font family */
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
 /* Defining Constant Colors */
 :root {
     --red: #f14e4e;
@@ -24,15 +31,33 @@
     --nav: #111023;
 }
 
+
+/* Scroll Wheel */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: var(--primary);
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--lightpurple);
+    border-radius: 20px;
+    border: 3px solid var(--purple);
+}
+
 /* Body */
 body {
     font-size: larger;
-    font-family: 'Lato', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    /*    font-family: 'Lato', sans-serif;*/
     font-weight: 300;
-    /* width: clamp(100vh, 100vh, 120vh); */
-    /* height: clamp(100vh, 100vh, 120vh); */
-    width: 100vw;
-    height: 100vh;
+    width: clamp(100vh, 100%, 420vh);
+    height: clamp(100vh, 100%, 420vh);
+    /*    width: 100vw;*/
+    /*    height: 100vh;*/
     background-color: #0c0c1a;
     background-size: cover;
     background-repeat: no-repeat;
@@ -49,15 +74,25 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.page-index{
+    width: clamp(100%, 100%, 120%);
+    height: clamp(100%, 100%, 120%);
+    background-image: url(images/bloom.png);
+    font-family: 'Lato', sans-serif;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .navbar {
     text-transform: uppercase;
     background-color: var(--nav);
     padding: 0% 2%;
 }
-footer {
+.footer {
     text-transform: uppercase;
-    background-color: var(--nav);
+    background-color: var(--blue);
     padding: 0% 2%;
+    position: fixed;
+    bottom: 0;
 }
 .navbar-nav {
     width: 600px;
@@ -93,24 +128,34 @@ label {
     display: contents !important;
 }
 
-h1 { font-size: 350%; }
-h2 { font-size: 200%; }
-h3 { font-size: 150%; }
-h4 { font-size: 120%; }
-h5 { font-size: 100%; }
+h1 {font-size: 350%; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
+h2 { font-size: 200%; font-family: -apple-system, BlinkMacSystemFont, sans-serif }
+h3 { font-size: 150%; font-family: -apple-system, BlinkMacSystemFont, sans-serif }
+h4 { font-size: 120%; font-family: -apple-system, BlinkMacSystemFont, sans-serif }
+h5 { font-size: 100%; font-family: -apple-system, BlinkMacSystemFont, sans-serif }
+p { font-size: 150%; font-family: -apple-system, BlinkMacSystemFont, sans-serif}
 
-.banner {
-    background-color: black;
-    padding: 2rem;
-    border: .25rem solid cyan;
+hr {
+    opacity: 1;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 100%;
 }
 
-.image-banner {
-    border-color: White;
-    margin: 1rem;
-    width: 1000px;
-    height: 500px;
+.hr-blue {
+    display: block;
+    border-color: #bb0c0c;
+    color: #bb0c0c;
+    opacity: 1;
+    width: 100%;
 }
+
+.hr-purple {
+    display: block;
+    border-color: purple;
+    opacity: 1;
+}
+
 .linkButton {
     padding: 0.3em 1.2em;
     margin: 0.5em 0.55em;

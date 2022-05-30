@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Index.master.cs" Inherits="Project.Index" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server"> 
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top">
+            <a class="navbar-brand align-items-center" href="index.aspx">
+                <img id="Image1" src="images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
+                Computer Sphere</a>
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-lg-around" id="navbarNavAltMarkup">
+                <center>
+                    <ul class="navbar-nav justify-content-evenly">
+                    <li class="nav-item">
+                        <a class="nav-link nav-links active-link" href="index.aspx">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-links active-link" href="index.aspx">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-links active-link" href="index.aspx">Home</a>
+                    </li>
+                </ul>
+                </center>
+                <div class="mr-sm-2 w3-center">
+                    <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
+                    <asp:Button ID="Button2" runat="server" Text="Sign In" CssClass="btn linkButton" OnClick="Button2_Click"/>
+                    <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton" OnClick="Button3_Click"/>
+                    <asp:Button ID="Button4" runat="server" Text="Hello" CssClass="btn linkButton " /> 
+                </div>
+            </div>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        <center><footer class="w3-text-cyan footer">&copy; All Rights Reserved | COMPUTERSPHERE &trade; | 2022</footer></center>
+        </div>
+    </form>
+</body>
+</html>
