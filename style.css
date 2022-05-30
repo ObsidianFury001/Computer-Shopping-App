@@ -1,64 +1,151 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+﻿/*Lato*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+/*Archivo*/
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
+
 *{
     box-sizing: border-box;
     margin: 0px;
-    padding: 0px    ;
+    padding: 0px;
+}
+/* Defining Constant Colors */
+:root {
+    --red: #f14e4e;
+    --orange: #f1bb4e;
+    --green: #84f14e;
+    --teal: #00ffe3;
+    --blue: #4e9af1;
+    --purple: #9a4ef1;
+    --lightpurple: #9c7dff;
+    --pink: #f14ebd;
+    --hot-pink: #e91e63;
+    --primary: #7511e1;
+    --border: #9558ff;
+    --nav: #111023;
 }
 
+/* Body */
 body {
+    font-size: larger;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    /* width: clamp(100vh, 100vh, 120vh); */
+    /* height: clamp(100vh, 100vh, 120vh); */
+    width: 100vw;
+    height: 100vh;
+    background-color: #0c0c1a;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: aquamarine;
+    line-height: 1.6;
+}
+
+.page {
+    width: clamp(100%, 100%, 120%);
+    height: clamp(100%, 100%, 120%);
     /*background: url(https://freellustrustrations.s3.us-east-2.amazonaws.com/free-images/freeimg_51228672freejpg850.jpg);*/
     font-family: 'Lato', sans-serif;
     background-image: url("/images/colors.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
-.navContainer {
-    margin: 1rem;
-    padding: 1rem;
-}
-.links{
-    padding: 1rem;
-}
 .navbar {
-    border-radius: 1rem;
+    text-transform: uppercase;
+    background-color: var(--nav);
+    padding: 0% 2%;
+}
+footer {
+    text-transform: uppercase;
+    background-color: var(--nav);
+    padding: 0% 2%;
+}
+.navbar-nav {
+    width: 600px;
+}
+
+.nav-links {
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav-links:hover, .active-link {
+    color: cyan;
+    font-weight: 600;
+}
+.hint {
+    color: cyan;
+    text-decoration: none;
 }
 .containerCard {
     color: cyan;
     margin: 3rem;
-    margin-left: auto;   
+    margin-left: auto;
     width: 35%;
     padding: 5%;
     border: 5px solid orange;
-    background-color: #161743;
+/*    background-color: #161743;*/
+    background-color: #080438;
     border-radius: 1rem;
 }
 
 label {
     display: contents !important;
 }
-    
-h1 {
-    font-size: 350%;
+
+h1 { font-size: 350%; }
+h2 { font-size: 200%; }
+h3 { font-size: 150%; }
+h4 { font-size: 120%; }
+h5 { font-size: 100%; }
+
+.banner {
+    background-color: black;
+    padding: 2rem;
+    border: .25rem solid cyan;
 }
 
-h2 {
-    font-size: 200%;
+.image-banner {
+    border-color: White;
+    margin: 1rem;
+    width: 1000px;
+    height: 500px;
 }
-
-h3 {
-    font-size: 150%;
-}
-
-h4 {
-    font-size: 120%;
-}
-
-h5 {
-    font-size: 100%;
-}
-
-.links {
-    color: cyan;
+.linkButton {
+    padding: 0.3em 1.2em;
+    margin: 0.5em 0.55em;
+    border: 0.15rem solid var(--lightpurple);
+    border-radius: .75rem;
+    box-sizing: border-box;
     text-decoration: none;
+    width: 10em;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--lightpurple);
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
+    background-color: #111023;
+    /*    background-color: var(--teal);*/
+}
 
+.linkButton:hover {
+    border: 0.15em solid var(--hot-pink);
+    border-radius: 1.5rem;
+    color: var(--hot-pink);
+    transition: all 0.5s ease 0s;
+    background-color: #111023;
+}
+
+.active-link-button {
+    border: 0.15em solid var(--teal);
+    color: var(--teal);
+    font-weight: 500;
+}
+
+.primary {
+    border-radius: .75rem;
+    font-weight: 300;
+    background-color: var(--primary);
+    color: cyan;
 }

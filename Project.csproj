@@ -127,6 +127,11 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logo2.jpg" />
+    <Content Include="images\products\mac.jpg" />
+    <Content Include="index.aspx" />
+    <Content Include="MasterPage.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\bloom.png" />
     <Content Include="images\circuit.jpg" />
@@ -134,7 +139,6 @@
     <Content Include="images\computer.jpg" />
     <Content Include="images\hexagons.jpg" />
     <Content Include="images\logo.jpg" />
-    <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="style.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -212,6 +216,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="signup.aspx.cs">
