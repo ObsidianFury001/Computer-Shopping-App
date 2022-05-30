@@ -17,6 +17,7 @@
 
 /* Defining Constant Colors */
 :root {
+    --ios-red: #ff2d55;
     --red: #f14e4e;
     --orange: #f1bb4e;
     --green: #84f14e;
@@ -89,24 +90,26 @@ body {
 }
 .footer {
     text-transform: uppercase;
-    background-color: var(--blue);
+    background-color: var(--nav);
     padding: 0% 2%;
-    position: fixed;
-    bottom: 0;
 }
 .navbar-nav {
     width: 600px;
 }
 
 .nav-links {
-    font-weight: 300;
-    color: white;
+    font-weight: 600;
+    color: cyan;
+    width: 8rem;
     text-decoration: none;
     text-transform: uppercase;
+    border-bottom: 3px solid cyan;
+    transition: all 0.2s ease-in-out;
 }
 .nav-links:hover, .active-link {
-    color: cyan;
-    font-weight: 600;
+    color: var(--teal);
+    width: 15rem;
+    border-bottom: 3px solid var(--teal);
 }
 .hint {
     color: cyan;

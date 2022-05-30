@@ -14,7 +14,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="containerCard w3-responsive">
             <div class="form-row">
-                    <h2>Sign Up</h2>
+                <h2 style="font-weight:700;">Sign Up</h2>
             </div><br />
 
             <div class="form-row"> 

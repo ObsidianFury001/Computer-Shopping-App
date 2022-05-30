@@ -104,8 +104,8 @@ namespace Project
 
         protected void showPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if(showPassword.Checked)
-                TextBox2.TextMode = TextBoxMode.Password;
+            if (showPassword.Checked)
+                Response.Write("Checked");
             else
                 TextBox2.TextMode = TextBoxMode.SingleLine; //For normal Plain text
         }
