@@ -126,6 +126,12 @@ body {
     background-color: #080438;
     border-radius: 1rem;
 }
+/*Responsive Card grid max cell width 200px*/
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
 
 label {
     display: contents !important;

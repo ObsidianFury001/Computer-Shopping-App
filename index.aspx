@@ -39,38 +39,83 @@
                     </asp:UpdatePanel>
             </div><br />
             
-                <div style="width:clamp(10%,50%,74%);">
-                   <div class="navbar w3-padding-16 rounded-4">
-                       <center><h3 class="navbar-brand align-items-center hint">Product Search</h3>
-                       </center>
-                        <div class="navbar nav rounded-2">
-                            <asp:DropDownList ID="searchFilter" runat="server" 
-                                AutoPostBack="True"
-                                CssClass="btn btn-primary dropdown rounded-2"
-                                OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
-                                ToolTip="Search using Brand, Product name." 
-                                Width="200px"
-                                Height="50px">
-                            </asp:DropDownList>
-                            <asp:TextBox ID="TextBox1" runat="server" 
-                                CssClass="form-control w3-margin"
-                                style=" width: 200px;
-                                        height: 50px;">
-                            </asp:TextBox>
-                            <asp:ImageButton ID="search" runat="server" 
-                                CssClass="primary w3-margin"
-                                ImageUrl="~/images/icons/search.png" 
-                                Width="60px"
-                                Height="50px" 
-                                BorderStyle="Solid"
-                                BorderWidth="3px"
-                                BorderColor="cyan"
-                                ToolTip="Search." />
-                        </div>
+            <div style="width:clamp(10%,50%,74%);">
+                <div class="navbar w3-padding-16 rounded-4">
+                    <center><h3 class="navbar-brand align-items-center hint">Product Search</h3>
+                    </center>
+                    <div class="navbar nav rounded-2">
+                        <asp:DropDownList ID="searchFilter" runat="server" 
+                            AutoPostBack="True"
+                            CssClass="btn btn-primary dropdown rounded-2"
+                            OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
+                            ToolTip="Search using Brand, Product name." 
+                            Width="200px"
+                            Height="50px">
+                        </asp:DropDownList>
+                        <asp:TextBox ID="TextBox1" runat="server" 
+                            CssClass="form-control w3-margin"
+                            style=" width: 200px;
+                                    height: 50px;">
+                        </asp:TextBox>
+                        <asp:ImageButton ID="search" runat="server" 
+                            CssClass="primary w3-margin"
+                            ImageUrl="~/images/icons/search.png" 
+                            Width="60px"
+                            Height="50px" 
+                            BorderStyle="Solid"
+                            BorderWidth="3px"
+                            BorderColor="cyan"
+                            ToolTip="Search." />
                     </div>
                 </div>
-            <br />
+            </div><br />
         </center>
+        <div> 
+            <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatDirection="Horizontal"
+                BackColor="#DEBA84" 
+                BorderColor="#DEBA84"
+                BorderStyle="None" 
+                BorderWidth="1px" 
+                CellPadding="3" 
+                CellSpacing="2" 
+                GridLines="Both" >
+                <FooterStyle BackColor="#F7DFB5 " ForeColor="#8C4510" />
+                <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                <ItemTemplate>
+                    <table>
+                        <div>
+                            <!-- Product Name -->
+                        <div class="row">
+                            <div class="col">
+                                <asp:Label BackColor="darkblue" ID="Label1" runat="server" Text="Label"></asp:Label>
+                            </div>
+                        </div>
+                        
+                        <!-- Image and Stock -->
+                        <div class="row">
+                            <div class="col">
+                                <asp:Image ID="Image1" runat="server" Width="450px" Height="600px"/>
+                            </div>
+                            <div class="col">
+                                <asp:Label BackColor="darkblue" ID="Label2" runat="server" Text="Stock"></asp:Label>
+                            </div>               
+                        </div>             
+                        <!-- Description -->
+                        <div class="row">
+                            <div class="col">
+                                <asp:Label BackColor="darkblue" ID="Label4" runat="server" Text="Description"></asp:Label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <asp:Label BackColor="darkblue" ID="Label3" runat="server" Text="ProductID"></asp:Label>
+                        </div>
+                        </div>
+                    </table>
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
         </div>
 </asp:Content>
 

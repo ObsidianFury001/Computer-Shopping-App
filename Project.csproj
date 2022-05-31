@@ -142,6 +142,7 @@
     <Content Include="images\banners\7.jpg" />
     <Content Include="images\banners\8.jpg" />
     <Content Include="images\banners\9.jpg" />
+    <Content Include="images\icons\search.jpg" />
     <Content Include="images\icons\search.png" />
     <Content Include="images\logo.gif" />
     <Content Include="images\logo2.jpg" />
