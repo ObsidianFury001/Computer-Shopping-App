@@ -83,7 +83,7 @@
                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
                 <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
                 <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                <ItemTemplate>
+                <ItemTemplate> 
                     <table>
                         <div>
                             <!-- Product Name -->
