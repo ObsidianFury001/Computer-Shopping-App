@@ -14,6 +14,8 @@ namespace Project
         //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["login"] != null)
+                Response.Redirect("index.aspx");
         }
 
         protected void signUp_Click(object sender, EventArgs e)

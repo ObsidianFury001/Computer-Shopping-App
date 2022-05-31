@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.Master" AutoEventWireup="true" CodeBehind="Adminlogin.aspx.cs" Inherits="Project.admin.Adminlogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Index.Master" AutoEventWireup="true" CodeBehind="Adminlogin.aspx.cs" Inherits="Project.admin.Adminlogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Bootstrap Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
@@ -15,7 +15,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <div class="content">
-        <div class="containerCard">
+        <center><br />
+            <div class="containerCard">
             <div class="form-row">
                 <h2 style="font-weight:700;">Admin Login</h2>
             </div><br />
@@ -52,6 +53,6 @@
             <div class="row w3-margin"> 
                 <asp:Button ID="loginButton" runat="server" Text="Login" CssClass="btn primary btn-block btn-lg" OnClick="loginButton_Click"/>
             </div>
-        </div>
+        </div></center><br />
     </div>
 </asp:Content>

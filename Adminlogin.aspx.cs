@@ -15,7 +15,8 @@ namespace Project.admin
         HttpCookie adminCookie;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["admin"] != null)
+                Response.Redirect("~/admin/AdminAddProduct.aspx");
         }
         protected void loginButton_Click(object sender, EventArgs e)
         {
@@ -30,9 +31,9 @@ namespace Project.admin
                 String password = TextBox2.Text.Trim();
                 if (String.IsNullOrEmpty(email) &&
                     String.IsNullOrEmpty(password))
-                    Response.Write("<script>alert('Please enter both email and password credentials.');</script>");
+                    Response.Write("<script>alert('Please enter both username and password credentials.');</script>");
                 else if (String.IsNullOrEmpty(email))
-                    Response.Write("<script>alert('Please enter the email.');</script>");
+                    Response.Write("<script>alert('Please enter the username.');</script>");
                 else if (String.IsNullOrEmpty(password))
                     Response.Write("<script>alert('Please enter the password.');</script>");
                 else
@@ -77,7 +78,7 @@ namespace Project.admin
                             Response.Cookies.Add(adminCookie);
                         }
 
-                        Response.Redirect("AdminAddProduct.aspx");
+                        Response.Redirect("admin/AdminAddProduct.aspx");
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }

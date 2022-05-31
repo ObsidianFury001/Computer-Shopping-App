@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="style.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="containerCard w3-responsive">
+        <div class="content"><br /><center>
+                <div class="containerCard w3-responsive">
             <div class="form-row">
                 <h2 style="font-weight:700;">Sign Up</h2>
             </div><br />
@@ -94,5 +95,6 @@
             </div>
             
             <center><h5><a href="signup.aspx" class="hint" >Already Signed Up? Click here to Sign In</a></h5></center>
+        </div></center><br />
         </div>
 </asp:Content>

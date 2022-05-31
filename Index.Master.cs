@@ -16,19 +16,28 @@ namespace Project
                 Button1.Visible = false;
                 Button2.Visible = false;
                 Button3.Visible = true;
+                UserLabel.Visible = true;
                 Button4.Visible = true;
                 Button4.Text = "Hello " + Request.Cookies["login"]["username"];
+            }
+            if (Request.Cookies["admin"] != null)
+            {
+                Button1.Visible = false;
+                Button2.Visible = false;
+                Button3.Visible = true;
+                UserLabel.Visible = true;
+                Button4.Visible = false;
+                Response.Redirect("admin/AdminAddProduct.aspx");
             }
             else
             {
                 Button1.Visible = true;
                 Button2.Visible = true;
                 Button3.Visible = false;
-                Button4.Visible = false;
-                //Response.Redirect("index.aspx");
+                UserLabel.Visible = false;
+                Button4.Visible = true;
             }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("signup.aspx");
@@ -45,6 +54,11 @@ namespace Project
             authcookie.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(authcookie);
             Response.Redirect("index.aspx");
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Adminlogin.aspx");
         }
     }
 }

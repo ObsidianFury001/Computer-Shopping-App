@@ -13,6 +13,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 27px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-index">
@@ -23,7 +28,7 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:Timer ID="Timer1" runat="server" 
-                                Interval="1000"
+                                Interval="2000"
                                 OnTick="Timer1_Tick">
                             </asp:Timer>
                             <asp:Image ID="Image2" runat="server" 
@@ -39,36 +44,32 @@
                     </asp:UpdatePanel>
             </div><br />
             
-            <div style="width:clamp(10%,50%,74%);">
-                <div class="navbar w3-padding-16 rounded-4">
-                    <center><h3 class="navbar-brand align-items-center hint w3-margin">Product Search</h3>
-                    </center>
-                    <div class="navbar nav rounded-2 w3-margin">
-                        <asp:DropDownList ID="searchFilter" runat="server" 
-                            AutoPostBack="True"
-                            CssClass="btn btn-primary dropdown rounded-2"
-                            OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
-                            ToolTip="Search using Brand, Product name." 
-                            Width="200px"
-                            Height="50px">
-                        </asp:DropDownList>
-                        <asp:TextBox ID="TextBox1" runat="server" 
-                            CssClass="form-control w3-margin"
-                            style=" width: 200px;
-                                    height: 50px;">
-                        </asp:TextBox>
-                        <asp:ImageButton ID="search" runat="server" 
-                            CssClass="primary w3-margin"
-                            ImageUrl="~/images/icons/search.png" 
-                            Width="60px"
-                            Height="50px" 
-                            BorderStyle="Solid"
-                            BorderWidth="3px"
-                            BorderColor="cyan"
-                            ToolTip="Search." />
-                    </div>
-                </div>
-            </div><br />
+                <div class="w3-panel panel-orange flex-lg-shrink- w3-padding rounded-4" style="width: clamp(10%, 70vw, 100%);">
+                    <table class="w3-padding-24 col-10">
+                        <tr>
+                            <td class="auto-style1 w3-margin w3-padding-16"><asp:DropDownList ID="searchFilter" runat="server"
+                                    AutoPostBack="True"
+                                    CssClass="btn btn-primary dropdown rounded-2 w3-responsive"
+                                    OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
+                                    ToolTip="Search using Brand, Product name." 
+                                    Width="120px"
+                                    Height="48px">
+                                </asp:DropDownList>
+                            </td>
+                            <td class="auto-style1 w3-margin-left w3-margin">
+                                <asp:TextBox ID="SearchBox" runat="server" 
+                                    CssClass="form-control-lg"  placeholder="Search" 
+                                    style="width: clamp(10%, 90vw, 100%);">
+                                </asp:TextBox>
+                            </td>
+                            <td class="auto-style1 w3-margin">
+                                <asp:Button ID="Button1" runat="server" Text="Search" CssClass="btn linkButton"
+                                    style="width: clamp(10%, 20vw, 100%);
+                                            height:7vh;"/>                  
+                            </td>
+                        </tr>
+                    </table>
+                </div><br />
         </center>
         <div> 
             <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatDirection="Horizontal"
@@ -85,33 +86,38 @@
                 <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
                 <ItemTemplate> 
                     <table>
-                        <div>
-                            <!-- Product Name -->
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label BackColor="darkblue" ID="Label1" runat="server" Text="Label"></asp:Label>
-                            </div>
-                        </div>
+                        <!-- Product Name -->
+                        <tr>
+                            <td>
+                                <asp:Label BackColor="darkblue" ID="ProductName" runat="server" Text="Product Name"></asp:Label>
+                            </td>
+                        </tr>
                         
-                        <!-- Image and Stock -->
-                        <div class="row">
-                            <div class="col">
-                                <asp:Image ID="Image1" runat="server" Width="450px" Height="600px"/>
-                            </div>
-                            <div class="col">
-                                <asp:Label BackColor="darkblue" ID="Label2" runat="server" Text="Stock"></asp:Label>
-                            </div>               
-                        </div>             
-                        <!-- Description -->
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label BackColor="darkblue" ID="Label4" runat="server" Text="Description"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <asp:Label BackColor="darkblue" ID="Label3" runat="server" Text="ProductID"></asp:Label>
-                        </div>
-                        </div>
+                        <!-- Image  -->
+                        <tr>
+                            <td>
+                                <asp:Image ID="Image1" runat="server" Width="400px" Height="400px"/>
+                            </td>
+                        </tr>             
+                        <!-- Description and Stock-->
+                        <tr>
+                            <td>
+                                <asp:Label BackColor="darkblue" ID="Desc" runat="server" Text="Description"></asp:Label>
+                            </td>  
+                        </tr>                           
+                        <!-- Price and Stock-->
+                        <tr>
+                            <td>
+                                <asp:Label BackColor="darkblue" ID="Price" runat="server" Text="Price"></asp:Label>
+                            </td>               
+                            <td>
+                                <asp:Label BackColor="darkblue" ID="Stock" runat="server" Text="Stock"></asp:Label>
+                            </td>               
+                        </tr>
+                        <tr>
+                            <asp:Label BackColor="darkblue" ID="ProductID" runat="server" Text="ProductID" Visible="false"></asp:Label>
+                        </tr>
+
                     </table>
                 </ItemTemplate>
             </asp:DataList>

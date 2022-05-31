@@ -17,6 +17,8 @@ namespace Project
         HttpCookie authCookie;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Cookies["login"] == null)
+                Response.Redirect("index.aspx");
         }
 
         protected void loginButton_Click(object sender, EventArgs e)

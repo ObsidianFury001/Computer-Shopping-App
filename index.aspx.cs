@@ -12,7 +12,7 @@ namespace Project
         protected void Page_Load(object sender, EventArgs e)
         {
             var randomize = new Random();
-            int i = randomize.Next(1, 100) % 16;
+            int i = randomize.Next(1,16);
             Image2.ImageUrl = string.Concat("images/banners/", i.ToString(), ".jpg");
         }
         protected void Timer1_Tick(object sender, EventArgs e)

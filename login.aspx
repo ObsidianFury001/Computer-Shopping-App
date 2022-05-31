@@ -18,7 +18,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
-        <div class="containerCard">
+        <center><br />
+            <div class="containerCard">
             <div class="form-row">
                 <h2 style="font-weight:700;">Login</h2>
             </div><br />
@@ -57,6 +58,6 @@
                 </div>
             </div>
             <center><h5 ><a href="signup.aspx" class="hint" >New User? Click here to Sign Up</a></h5></center>
-        </div>
+        </div></center><br />
     </div>
 </asp:Content>
