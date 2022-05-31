@@ -94,7 +94,7 @@
                 <asp:Button ID="sizzgnUp" runat="server" Text="Sign Up" CssClass="btn primary btn-block btn-lg" OnClick="signUp_Click"/>
             </div>
             
-            <center><h5><a href="signup.aspx" class="hint" >Already Signed Up? Click here to Sign In</a></h5></center>
+            <center><h5><a href="login.aspx" class="hint" >Already Signed Up? Click here to Sign In</a></h5></center>
         </div></center><br />
         </div>
 </asp:Content>

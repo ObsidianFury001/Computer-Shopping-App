@@ -75,13 +75,10 @@
         </center>
         <div style=" margin: 2%;
                     border: 4px solid #ffd800;"> 
-            <asp:DataList ID="ProductList" runat="server" DataKeyField=""
+            <asp:DataList ID="ProductList" runat="server"
                 RepeatColumns="4" 
                 RepeatDirection="Horizontal"
-                BackColor="#DEBA84" 
-                BorderColor="Black"
-                BorderStyle="None" 
-                BorderWidth="3px" 
+                BackColor="#ed7bc2"
                 CellPadding="3" 
                 CellSpacing="2" 
                 GridLines="Both" 
