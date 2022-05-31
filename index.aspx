@@ -41,9 +41,9 @@
             
             <div style="width:clamp(10%,50%,74%);">
                 <div class="navbar w3-padding-16 rounded-4">
-                    <center><h3 class="navbar-brand align-items-center hint">Product Search</h3>
+                    <center><h3 class="navbar-brand align-items-center hint w3-margin">Product Search</h3>
                     </center>
-                    <div class="navbar nav rounded-2">
+                    <div class="navbar nav rounded-2 w3-margin">
                         <asp:DropDownList ID="searchFilter" runat="server" 
                             AutoPostBack="True"
                             CssClass="btn btn-primary dropdown rounded-2"

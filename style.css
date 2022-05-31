@@ -94,22 +94,21 @@ body {
     padding: 0% 2%;
 }
 .navbar-nav {
-    width: 600px;
+    width: 500px;
 }
 
 .nav-links {
-    font-weight: 600;
+    font-weight: 400;
     color: cyan;
-    width: 8rem;
+    width: 100%;
     text-decoration: none;
     text-transform: uppercase;
-    border-bottom: 3px solid cyan;
     transition: all 0.2s ease-in-out;
 }
 .nav-links:hover, .active-link {
     color: var(--teal);
-    width: 15rem;
-    border-bottom: 3px solid var(--teal);
+    border: 2px solid cyan;
+    border-radius: .5rem;
 }
 .hint {
     color: cyan;
@@ -118,7 +117,6 @@ body {
 .containerCard {
     color: cyan;
     margin: 3rem;
-    margin-left: auto;
     width: 35%;
     padding: 5%;
     border: 5px solid orange;
