@@ -31,6 +31,7 @@
     --primary: #7511e1;
     --border: #9558ff;
     --nav: #111023;
+    --table-border: #002987;
 }
 
 
@@ -113,7 +114,7 @@ body {
     font-size: clamp(50%, 16px, 130%);
     font-weight: 400;
     color: white;
-    width: 7em;
+    width: 10em;
     height: clamp(80%, 100%, 120%);
     text-decoration: none;
     text-transform: uppercase;

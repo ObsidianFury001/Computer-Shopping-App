@@ -148,6 +148,8 @@
     <Content Include="images\icons\search.png" />
     <Content Include="images\logo.gif" />
     <Content Include="images\logo2.jpg" />
+    <Content Include="images\products\CPUGeForceRTX3080.jpg" />
+    <Content Include="images\products\CPUInteli7.jpg" />
     <Content Include="index.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="Index.Master" />
@@ -315,6 +317,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

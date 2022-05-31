@@ -57,7 +57,8 @@
                         <label class="form-check-label" for="showPassword">Show Password</label>
                 </div>
             </div>
-            <center><h5 ><a href="signup.aspx" class="hint" >New User? Click here to Sign Up</a></h5></center>
+            <center><h5 ><a href="signup.aspx" class="hint" >New User? Click here to Sign Up</a><asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                </h5></center>
         </div></center><br />
     </div>
 </asp:Content>
