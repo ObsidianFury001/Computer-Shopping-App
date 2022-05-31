@@ -214,6 +214,7 @@ hr {
 
 .linkButton2 {
     width: 60%;
+    height: 5vh;
 }
 .linkButton:hover {
     border: 0.15em solid var(--hot-pink);
