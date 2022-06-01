@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 /*Archivo*/
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap');
-*{
+* {
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 0px;
     padding: 0px;
     word-break: break-word;
@@ -32,6 +33,7 @@
     --border: #9558ff;
     --nav: #111023;
     --table-border: #002987;
+    --cell-width: 150px;
 }
 
 
@@ -68,6 +70,13 @@ body {
     line-height: 1.6;
 }
 
+.filter
+{
+    width: clamp(50%, 15vw, 100%);
+}
+.clamp-300-500-600 {
+    width: clamp(30%, 500px, 91%);
+}
 .page {
     width: clamp(100%, 100%, 120%);
     height: clamp(100%, 100%, 120%);
@@ -108,14 +117,16 @@ body {
 .navbar-nav {
     width: 600px;
 }
+.nav-item {
+    padding: 1%;
+}
 
 .nav-links {
-    padding: 5%;
     font-size: clamp(50%, 16px, 130%);
     font-weight: 400;
     color: white;
-    width: 10em;
-    height: clamp(80%, 100%, 120%);
+    width: clamp(8em, 9.2em, 11em);
+    height: 100%;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
@@ -123,9 +134,6 @@ body {
     border-radius: .75rem;
 }
 
-.nav-item {
-    padding: 1%;    
-}
 .nav-links2 {
     font-size: 16px;
     width: clamp(4em, 7em, 12em);
@@ -140,6 +148,43 @@ body {
     color: var(--teal);
     border-radius: 1.5rem;
     border: 2px solid var(--teal);
+}
+
+.linkButton {
+    padding: 1%;
+    margin: 0.5em 0.55em;
+    border: 0.15rem solid var(--lightpurple);
+    border-radius: .75rem;
+    text-decoration: none;
+    width: 9.2em;
+    font-size: clamp(40%, 16px, 130%);
+    font-weight: 300;
+    color: var(--lightpurple);
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
+    color: var(--lightpurple);
+    background-color: var(--nav);
+    /*    background-color: var(--teal);*/
+}
+
+.linkButton2 {
+    width: 60%;
+    height: 50px;
+}
+
+.linkButton:hover {
+    border: 0.15em solid var(--hot-pink);
+    border-radius: 1.5rem;
+    color: var(--hot-pink);
+    background-color: var(--nav);
+    transition: all 0.5s ease 0s;
+}
+
+.active-link-button {
+    border: 0.15em solid var(--teal);
+    color: var(--teal);
+    font-weight: 500;
 }
 .hint {
     color: cyan;
@@ -157,8 +202,11 @@ body {
 }
 /*Responsive Card grid max cell width 200px*/
 .cards {
+    margin: 5%;
+    background-color: #080438;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    width: 400px;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
     gap: 20px;
 }
 
@@ -194,42 +242,6 @@ hr {
     opacity: 1;
 }
 
-.linkButton {
-    padding: 1%;
-    margin: 0.5em 0.55em;
-    border: 0.15rem solid var(--lightpurple);
-    border-radius: .75rem;
-    box-sizing: border-box;
-    text-decoration: none;
-    width: 9.2rem;
-    font-size: clamp(40%, 16px, 130%);
-    font-weight: 300;
-    color: var(--lightpurple);
-    text-align: center;
-    text-transform: uppercase;
-    transition: all 0.5s ease 0s;
-    color: var(--lightpurple);
-    background-color: var(--nav);
-    /*    background-color: var(--teal);*/
-}
-
-.linkButton2 {
-    width: 60%;
-    height: 5vh;
-}
-.linkButton:hover {
-    border: 0.15em solid var(--hot-pink);
-    border-radius: 1.5rem;
-    color: var(--hot-pink);
-    background-color: var(--nav);
-    transition: all 0.5s ease 0s;
-}
-
-.active-link-button {
-    border: 0.15em solid var(--teal);
-    color: var(--teal);
-    font-weight: 500;
-}
 .panel-orange {
     border: 3px solid var(--orange);
     background-color: var(--nav);

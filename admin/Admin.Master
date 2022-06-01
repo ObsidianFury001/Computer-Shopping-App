@@ -33,25 +33,25 @@
 
             <div class="collapse navbar-collapse justify-content-lg-around" id="navbarNavAltMarkup">
                 <center>
-                    <ul class="navbar-nav justify-content-evenly">
+                    <ul class="navbar-nav justify-content-evenly align-items-center w3-padding w3-margin">
                     <li class="nav-item">
-                        <a id="link1" class="nav-link nav-links2" href="#">Add Product</a>
+                        <a id="link1" class="nav-link nav-links nav-links2" href="#">Add Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link2" class="nav-link nav-links2" href="#">Update Product</a>
+                        <a id="link2" class="nav-link nav-links nav-links2" href="#">Update Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link3" class="nav-link nav-links2" href="#">Add Stock</a>
+                        <a id="link3" class="nav-link nav-links nav-links2" href="#">Add Stock</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link4" class="nav-link nav-links2" href="#">Delete Product</a>
+                        <a id="link4" class="nav-link nav-links nav-links2" href="#">Delete Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link5" class="nav-link nav-links2" href="#">Change Password</a>
+                        <a id="link5" class="nav-link nav-links nav-links2" href="#">Change Password</a>
                     </li>
                 </ul>
                 </center>
-                <div class="mr-sm-2 w3-center">
+                <div class="w3-center">
                     <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
                     <asp:Button ID="Button2" runat="server" Text="Sign In" CssClass="btn linkButton" OnClick="Button2_Click"/>
                     <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton linkButton2" OnClick="Button3_Click"/>

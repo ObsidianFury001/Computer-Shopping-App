@@ -10,6 +10,8 @@
     
     <!-- W3 Libraries -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Javascript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -21,7 +23,8 @@
 <body>
     <form id="form1" runat="server"> 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top" 
+            style="width: clamp(10%, 100%, 101%)">
             <a class="navbar-brand align-items-center" href="index.aspx">
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
                 Computer Sphere</a>
@@ -44,7 +47,7 @@
                         </li>
                     </ul>
                 </center>
-                <div class="mr-sm-2 w3-center">
+                <div class="w3-center">
                     <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
                     <asp:Button ID="Button2" runat="server" Text="Sign In" CssClass="btn linkButton" OnClick="Button2_Click"/>
                     <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton" OnClick="Button3_Click"/>

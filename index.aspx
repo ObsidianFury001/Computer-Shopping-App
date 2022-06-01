@@ -44,101 +44,109 @@
                     </asp:UpdatePanel>
             </div><br />
             
-                <div class="w3-panel panel-orange flex-lg-shrink- w3-padding rounded-4" style="width: clamp(10%, 70vw, 100%);">
-                    <table class="w3-padding-24 col-10">
-                        <tr class="">
-                            <td class="auto-style1 w3-margin w3-padding-16"><asp:DropDownList ID="searchFilter" runat="server"
+                <div class="w3-panel panel-orange w3-padding rounded-4" 
+                    style="width: clamp(10%, 70vw, 100%);
+                            height: 100px;">
+                    <table class="w3-padding-24 col-7">
+                        <tr>
+                            <td class="w3-margin w3-padding-16"><asp:DropDownList ID="searchFilter" runat="server"
                                     AutoPostBack="True"
-                                    CssClass="btn btn-primary dropdown rounded-2 w3-responsive"
+                                    CssClass="btn btn-primary dropdown rounded-2"
                                     OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
                                     ToolTip="Search using Brand, Product name." 
-                                    Width="120px"
+                                    Width="180px"
                                     Height="48px">
                                 </asp:DropDownList>
                             </td>
-                            <td class="auto-style1 w3-margin-left w3-margin">
+                            <td class="w3-margin-left w3-margin">
                                 <asp:TextBox ID="SearchBox" runat="server" 
                                     CssClass="form-control-lg"  placeholder="Search" 
-                                    style="width: clamp(10%, 90vw, 100%);">
+                                    style="width: clamp(30%, 20vw, 100%);">
                                 </asp:TextBox>
                             </td>
-                            <td class="auto-style1 w3-margin">
-                                <asp:Button ID="Button1" runat="server" Text="Search" CssClass="btn linkButton"
+                            <td class=" w3-margin">
+                                <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn linkButton"
                                     style="width: clamp(10%, 20vw, 100%);
-                                            height:7vh;"/>                  
+                                            height:48px;" OnClick="SearchButton_Click"/>                  
                             </td>
                         </tr>
                     </table>
                     <br />
                 </div>
             <br />
-        </center>
-        <div style=" margin: 2%;
-                    border: 4px solid #ffd800;"> 
-            <asp:DataList ID="ProductList" runat="server"
-                RepeatColumns="4" 
+              <asp:DataList ID="ProductList" runat="server" 
+                RepeatColumns="2" 
                 RepeatDirection="Horizontal"
-                BackColor="#ed7bc2"
-                CellPadding="3" 
-                CellSpacing="2" 
-                GridLines="Both" 
-                >
+                BackColor="#9999ff"
+                BorderColor="Cyan"
+                BorderWidth="5px"
+                CellPadding="1" 
+                CellSpacing="1"
+                CssClass="w3-margin "
+                GridLines="Both">
+
                 <FooterStyle BackColor="#F7DFB5 " ForeColor="#8C4510" />
                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                <ItemStyle BackColor="#6699ff" ForeColor="#8C4510" />
                 <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                <ItemTemplate> 
-                    <table class="w3-margin rounded-3" style="border: 5px solid black; border-radius: .75rem;">
+                <ItemTemplate > 
+                    <table class="w3-margin rounded-3" 
+                        style="padding: 2%;
+                            width: 400px;
+                            height: 350px;
+                            border: 5px solid black; 
+                            border-radius: .75rem;">    
                         <!-- Product Name -->
-                        <tr class="w3-red">
-                            <td><center>
-                                &nbsp;Product Name:&nbsp;
+                        <tr class="w3-red"  style="width: 100%;" >
+                            <td style="text-align: center;">
                                 <asp:Label ID="ProductName" runat="server" Text='<%#Eval("prod_name")%>'  
                                     Font-Bold="true"
-                                    ForeColor="Cyan" 
-                                    ></asp:Label>
-                                </center>
+                                    ForeColor="Cyan"  >
+                                </asp:Label>
                             </td>
                         </tr>
-                        
                         <!-- Image  -->
-                        <tr style="background-color: var(--table-border);">
-                            <td>
-                                <center><asp:Image ID="Image1" runat="server"  Width="400px" Height="400px" ImageUrl='<%# Eval("image")%>' class="rounded-3 w3-margin" style="border: 4px solid orange;"/></center>
+                        <tr style="background-color: var(--table-border);
+                                    width: var(--cell-width);" >
+                            <td style="text-align: center;
+                                    width: var(--cell-width);" >
+                                <asp:Image ID="Image1" runat="server"  Width="400px" Height="400px" ImageUrl='<%# Eval("image")%>' class="rounded-3 w3-margin" style="border: 4px solid orange;"/>
                             </td>
                             <!-- Price and Stock-->
-                        <tr class="w3-yellow"> 
-                            <td><center>&nbsp;Price:&nbsp;
-                                <asp:Label ID="Price" runat="server" Text='<%# Eval("cost")%>' 
-                                    Font-Bold="true"></asp:Label></center>
+                        <tr class="w3-yellow" style="width: var(--cell-width);" >
+                            <td style="text-align: center;
+                                    width: var(--cell-width);" >&nbsp;Price:&nbsp;
+                                <asp:Label ID="Price" runat="server" Text='<%#Eval("cost")%>' 
+                                    Font-Bold="true"></asp:Label>
                             </td>             
                         </tr>
-                        <tr class="w3-ios-dark-blue"> 
-                            <td><center>&nbsp;Stock:&nbsp;
-                                <asp:Label ID="Stock" runat="server" Text='<%# Eval("stock")%>'></asp:Label>
-                                </center>
+                        <tr class="w3-ios-dark-blue" style="width: var(--cell-width);" > 
+                            <td style="text-align: center;
+                                    width: var(--cell-width);" >&nbsp;Stock:&nbsp;
+                                <asp:Label ID="Stock" runat="server" Text='<%#Eval("stock")%>'></asp:Label>
                             </td>               
                         </tr> 
                         <!-- Category and Description-->
-                        <tr class="w3-yellow"> 
-                            <td><center>Category:&nbsp;
-                                <asp:Label ID="Category" runat="server" Text='<%# Eval("category")%>'></asp:Label></center>
+                        <tr class="w3-yellow" style="width: var(--cell-width);" >
+                            <td style="text-align: center;
+                                    width: var(--cell-width);">Category:&nbsp;
+                                <asp:Label ID="Category" runat="server" Text='<%#Eval("category")%>'></asp:Label>
                             </td>  
                         </tr>
-                        <tr class="w3-green text-white"> 
-                            <td><center>Description:&nbsp;
-                                <asp:Label ID="Desc" runat="server" Text='<%# Eval("desc")%>'></asp:Label></center>
+                        <tr class="w3-green text-white" style="width: var(--cell-width);" > 
+                            <td style="text-align: center;
+                                    height: 120px;" >Description:&nbsp;
+                                <asp:Label ID="Desc" runat="server" Text='<%#Eval("desc")%>'></asp:Label>
                             </td>  
                         </tr>                           
-                        
-                        <tr BackColor="darkblue" >
-                            <asp:Label BackColor="darkblue" ID="ProductID" runat="server" Text='<%# Eval("id")%>' Visible="false"></asp:Label>
+                        <tr style="background-color: darkblue;
+                                width: var(--cell-width);" >
+                            <asp:Label BackColor="darkblue" ID="ProductID" runat="server" Text='<%#Eval("id")%>' Visible="false"></asp:Label>
                         </tr>
-
                     </table>
                 </ItemTemplate>
             </asp:DataList>
-        </div>
+        </center>
         </div>
 </asp:Content>
 
