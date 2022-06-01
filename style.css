@@ -22,6 +22,7 @@
     --ios-red: #ff2d55;
     --red: #f14e4e;
     --orange: #f1bb4e;
+    --orange-bright: fb641b;
     --green: #84f14e;
     --teal: #00ffe3;
     --blue: #4e9af1;
@@ -29,6 +30,7 @@
     --lightpurple: #9c7dff;
     --pink: #f14ebd;
     --hot-pink: #e91e63;
+    --pink-bright: #ea1e63; 
     --primary: #7511e1;
     --border: #9558ff;
     --nav: #111023;
@@ -223,23 +225,27 @@ p { font-size: 150%; font-family: -apple-system, BlinkMacSystemFont, sans-serif}
 
 hr {
     opacity: 1;
-    border: 1px solid;
-    border-radius: 5px;
+    height: 5px;
     width: 100%;
 }
 
-.hr-blue {
+.hr-red {
     display: block;
-    border-color: #bb0c0c;
+    background-color: var(--ios-red);
+    border-color: var(--ios-red);
+    border-radius: 5px;
     color: #bb0c0c;
     opacity: 1;
-    width: 100%;
+    width: 90%;
 }
+
 
 .hr-purple {
     display: block;
-    border-color: purple;
+    background-color: var(--primary);
+    border-color: var(--primary);
     opacity: 1;
+    width: 90%;
 }
 
 .panel-orange {

@@ -42,13 +42,13 @@
                                 ImageAlign="Middle"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>
-            </div><br />
-            
-                <div class="w3-panel panel-orange w3-padding rounded-4" 
-                    style="width: clamp(10%, 70vw, 100%);
+                  <div class="w3-panel panel-orange rounded-4" 
+                    style="width: clamp(10%, 77%, 100%);
                             height: 100px;">
-                    <table class="w3-padding-24 col-7">
-                        <tr>
+                    <table class="col-12">
+                        <tr><td class="w3-margin w3-padding-16">
+                            <div style="font-size: clamp(small, 20px, larger);">Product Search</div>
+                        </td>
                             <td class="w3-margin w3-padding-16"><asp:DropDownList ID="searchFilter" runat="server"
                                     AutoPostBack="True"
                                     CssClass="btn btn-primary dropdown rounded-2"
@@ -64,7 +64,7 @@
                                     style="width: clamp(30%, 20vw, 100%);">
                                 </asp:TextBox>
                             </td>
-                            <td class=" w3-margin">
+                            <td class="w3-margin">
                                 <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn linkButton"
                                     style="width: clamp(10%, 20vw, 100%);
                                             height:48px;" OnClick="SearchButton_Click"/>                  
@@ -73,6 +73,9 @@
                     </table>
                     <br />
                 </div>
+            </div>
+            
+              
             <br />
               <asp:DataList ID="ProductList" runat="server" 
                 RepeatColumns="2" 
@@ -92,7 +95,7 @@
                 <ItemTemplate > 
                     <table class="w3-margin rounded-3" 
                         style="padding: 2%;
-                            width: 400px;
+                            width: 500px;
                             height: 350px;
                             border: 5px solid black; 
                             border-radius: .75rem;">    
@@ -110,12 +113,12 @@
                                     width: var(--cell-width);" >
                             <td style="text-align: center;
                                     width: var(--cell-width);" >
-                                <asp:Image ID="Image1" runat="server"  Width="400px" Height="400px" ImageUrl='<%# Eval("image")%>' class="rounded-3 w3-margin" style="border: 4px solid orange;"/>
+                                <asp:Image ID="Image1" runat="server" Width="450px" Height="400px" ImageUrl='<%# Eval("image")%>' class="rounded-5 w3-margin" style="border: 4px solid orange;"/>
                             </td>
-                            <!-- Price and Stock-->
+                        <!-- Price and Stock-->
                         <tr class="w3-yellow" style="width: var(--cell-width);" >
                             <td style="text-align: center;
-                                    width: var(--cell-width);" >&nbsp;Price:&nbsp;
+                                    width: var(--cell-width);" >&nbsp;Price:&nbsp;AED&nbsp;
                                 <asp:Label ID="Price" runat="server" Text='<%#Eval("cost")%>' 
                                     Font-Bold="true"></asp:Label>
                             </td>             
@@ -133,15 +136,42 @@
                                 <asp:Label ID="Category" runat="server" Text='<%#Eval("category")%>'></asp:Label>
                             </td>  
                         </tr>
-                        <tr class="w3-green text-white" style="width: var(--cell-width);" > 
+                        <tr class="w3-ios-orange text-white" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     height: 120px;" >Description:&nbsp;
                                 <asp:Label ID="Desc" runat="server" Text='<%#Eval("desc")%>'></asp:Label>
                             </td>  
-                        </tr>                           
-                        <tr style="background-color: darkblue;
-                                width: var(--cell-width);" >
-                            <asp:Label BackColor="darkblue" ID="ProductID" runat="server" Text='<%#Eval("id")%>' Visible="false"></asp:Label>
+                        </tr>    
+                        
+                        <!-- Product Quantiy and Add to cart Controls -->
+                        <tr class="w3-black ">
+                            <td align="center" 
+                                    height: 150px;">
+                               <div class="w3-black">Quantity:
+                                    <asp:DropDownList ID="Quantity" runat="server" 
+                                    Width="75px"
+                                    Height="50px"
+                                    CssClass="btn btn-primary dropdown rounded-2 w3-margin w3-padding">
+                                    <asp:ListItem>1</asp:ListItem>
+                                    <asp:ListItem>2</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                    <asp:ListItem>4</asp:ListItem>
+                                    <asp:ListItem>5</asp:ListItem>
+                                </asp:DropDownList>
+                               </div>
+                                <hr class="hr-red" />
+                            <asp:Button ID="AddToCartButton" runat="server"
+                                CssClass="btn btn-dark w3-margin linkButton"
+                                Width="200px" Height="50px" 
+                                Font-Size="20px" 
+                                ForeColor="Cyan"
+                                Text="Add To Cart"
+                                CommandName="AddToCart"
+                                CommandArgument='<%#Eval("id") %>'
+                                >
+                            </asp:Button><br />
+                                <asp:Label ID="ProductID" runat="server" Text='<%#Eval("id")%>' Visible="false"></asp:Label>
+                            </td>
                         </tr>
                     </table>
                 </ItemTemplate>

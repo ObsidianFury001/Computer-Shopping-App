@@ -25,14 +25,18 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top" 
             style="width: clamp(10%, 100%, 101%)">
-            <a class="navbar-brand align-items-center" href="index.aspx">
+            <center><div>
+            <a class="navbar-brand align-items-center" href="index.aspx"  
+                style="font-weight: 600;
+
+                font-size: 22px;" >
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
                 Computer Sphere</a>
-            <!-- Navbar toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-
+                <!-- Navbar toggler -->
+                <button class="navbar-toggler w3-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button></div>
+            </center>
             <div class="collapse navbar-collapse justify-content-lg-evenly" id="navbarNavAltMarkup">
                 <center>
                     <ul class="navbar-nav justify-content-evenly">
@@ -51,7 +55,7 @@
                     <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
                     <asp:Button ID="Button2" runat="server" Text="Sign In" CssClass="btn linkButton" OnClick="Button2_Click"/>
                     <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton" OnClick="Button3_Click"/>
-                    <asp:Button ID="Button4" runat="server" Text="Welcome" CssClass="linkButton" />
+                    <asp:Button ID="Button4" runat="server" Text="Welcome" CssClass="btn linkButton" />
                     <asp:Button ID="Button5" runat="server" Text="Admin Login" CssClass="btn linkButton" OnClick="Button5_Click"/>
                 </div>
             </div>

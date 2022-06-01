@@ -25,7 +25,7 @@ namespace Project
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             var randomize = new Random();
-            int i = randomize.Next(1, 100)%16;
+            int i = randomize.Next(1, 16);
             Image2.ImageUrl = string.Concat("images/banners/", i.ToString(), ".jpg");
         }
 
@@ -95,8 +95,8 @@ namespace Project
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             String filterQuery = "";
-            String selectedCategory = searchFilter.SelectedItem.Text;
-            filterQuery = "SELECT * FROM products WHERE prod_name like \"%" + selectedCategory + "%\";";
+            String selectedCategory = SearchBox.Text;
+            filterQuery = "SELECT * FROM products WHERE (prod_name like \"%" + selectedCategory + "%\") OR (category like \"%" + selectedCategory + "%\");";
             Response.Write("<script>alert('"+filterQuery+"')");
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();
