@@ -6,6 +6,7 @@
     
     <!-- W3 Libraries -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
 
     <!-- Javascript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -84,7 +85,10 @@
                 CellPadding="1" 
                 CellSpacing="1"
                 CssClass="w3-margin "
-                GridLines="Both">
+                GridLines="Both"
+                OnItemCommand="ProductList_ItemCommand"
+
+                  >
 
                 <FooterStyle BackColor="#F7DFB5 " ForeColor="#8C4510" />
                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -121,14 +125,14 @@
                                     Font-Bold="true"></asp:Label>
                             </td>             
                         </tr>
-                        <tr class="w3-ios-dark-blue" style="width: var(--cell-width);" > 
+                        <tr class="w3-ios" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     width: var(--cell-width);" >&nbsp;Stock:&nbsp;
                                 <asp:Label ID="Stock" runat="server" Text='<%#Eval("stock")%>'></asp:Label>
                             </td>               
                         </tr> 
                         <!-- Category and Description-->
-                        <tr class="w3-yellow" style="width: var(--cell-width);" >
+                        <tr class="w3-orange" style="width: var(--cell-width);" >
                             <td style="text-align: center;
                                     width: var(--cell-width);">Category:&nbsp;
                                 <asp:Label ID="Category" runat="server" Text='<%#Eval("category")%>'></asp:Label>

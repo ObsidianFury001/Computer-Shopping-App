@@ -126,7 +126,7 @@ namespace Project
             {
                 // Creating a Quantity object for the Quantity Dropdown List
                 DropDownList quantityList = (DropDownList)(e.Item.FindControl("Quantity"));
-                // Redirecting to a Cart page by passing Product Id and Quantity as custom url
+                // Passing Product Id and Quantity as using Query String ?
                 Response.Redirect("AddToCart.aspx?id=" + e.CommandArgument.ToString() +
                     "&quantity" + quantityList.SelectedItem.ToString());
             }

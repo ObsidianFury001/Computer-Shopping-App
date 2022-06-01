@@ -113,6 +113,7 @@ body {
     padding: 1%;
 }
 .footer {
+    color: teal;
     text-transform: uppercase;
     background-color: var(--nav);
     padding: 0% 2%;
@@ -121,7 +122,7 @@ body {
     width: 600px;
 }
 .nav-item {
-    padding: 1%;
+    padding: 1.5%;
 }
 
 .nav-links {
@@ -138,9 +139,10 @@ body {
 }
 
 .nav-links2 {
-    font-size: 16px;
+    font-size: clamp(50%, 16px, 130%);
+    color: white;
     width: clamp(4em, 7em, 12em);
-    height: clamp(80%, 10vh, 120%);
+    height: clamp(4em, 8vh, 11em);
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
@@ -172,8 +174,21 @@ body {
 }
 
 .linkButton2 {
+    padding: 1%;
+    margin: 0.5em 0.55em;
+    border: 0.15rem solid var(--lightpurple);
+    border-radius: .75rem;
+    text-decoration: none;
     width: 60%;
     height: 50px;
+    font-size: clamp(40%, 16px, 130%);
+    font-weight: 300;
+    color: var(--lightpurple);
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
+    color: var(--lightpurple);
+    background-color: var(--nav);
 }
 
 .linkButton:hover {

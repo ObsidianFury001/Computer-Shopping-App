@@ -10,6 +10,7 @@
     
     <!-- W3 Libraries -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
 
     <!-- Javascript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -40,19 +41,19 @@
                 <center>
                     <ul class="navbar-nav justify-content-evenly align-items-center w3-padding w3-margin">
                     <li class="nav-item">
-                        <a id="link1" class="nav-link nav-links nav-links2" href="#">Add Product</a>
+                        <a id="link1" class="nav-link nav-links2" href="#">Add Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link2" class="nav-link nav-links nav-links2" href="#">Update Product</a>
+                        <a id="link2" class="nav-link nav-links2" href="#">Update Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link3" class="nav-link nav-links nav-links2" href="#">Add Stock</a>
+                        <a id="link3" class="nav-link nav-links2" href="#">Add more Stock</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link4" class="nav-link nav-links nav-links2" href="#">Delete Product</a>
+                        <a id="link4" class="nav-link nav-links2" href="#">Delete Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="link5" class="nav-link nav-links nav-links2" href="#">Change Password</a>
+                        <a id="link5" class="nav-link nav-links2" href="#">Change Password</a>
                     </li>
                 </ul>
                 </center>

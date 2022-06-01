@@ -10,6 +10,7 @@
     
     <!-- W3 Libraries -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-ios.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -47,7 +48,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <div>
-        <center><hr class="hr-purple" /><footer class="w3-text-cyan footer">&copy; All Rights Reserved | COMPUTERSPHERE &trade; | 2022</footer></center>
+        <center><hr class="hr-purple" /><footer class="footer">&copy; All Rights Reserved | COMPUTERSPHERE &trade; | 2022</footer></center>
         </div>
     </form>
 </body>
