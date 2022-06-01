@@ -94,14 +94,15 @@ body {
     height: clamp(100%, 100%, 120%);
     /*background: url(https://freellustrustrations.s3.us-east-2.amazonaws.com/free-images/freeimg_51228672freejpg850.jpg);*/
     font-family: 'Lato', sans-serif;
-    background-image: url("images/colors.jpg");
+/*    background-image: url("images/colors.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
 }
-.page-index{
+.page-index {
     width: clamp(100%, 100%, 120%);
     height: clamp(100%, 100%, 120%);
-    background-image: url(images/bloom.png);
+    /*    background-image: url(images/bloom.png);*/
+    background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
     font-family: 'Lato', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;

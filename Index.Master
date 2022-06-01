@@ -25,31 +25,15 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top" 
             style="width: clamp(10%, 100%, 101%)">
-            <center><div>
             <a class="navbar-brand align-items-center" href="index.aspx"  
                 style="font-weight: 600;
 
                 font-size: 22px;" >
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
                 Computer Sphere</a>
-                <!-- Navbar toggler -->
-                <button class="navbar-toggler w3-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button></div>
-            </center>
             <div class="collapse navbar-collapse justify-content-lg-evenly" id="navbarNavAltMarkup">
                 <center>
-                    <ul class="navbar-nav justify-content-evenly">
-                        <li class="nav-item">
-                            <a class="nav-link nav-links" href="index.aspx">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-links" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-links" href="index.aspx">Cart</a>
-                        </li>
-                    </ul>
+                    
                 </center>
                 <div class="w3-center">
                     <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
@@ -63,7 +47,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <div>
-        <center><footer class="w3-text-cyan footer">&copy; All Rights Reserved | COMPUTERSPHERE &trade; | 2022</footer></center>
+        <center><hr class="hr-purple" /><footer class="w3-text-cyan footer">&copy; All Rights Reserved | COMPUTERSPHERE &trade; | 2022</footer></center>
         </div>
     </form>
 </body>

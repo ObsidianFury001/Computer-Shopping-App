@@ -17,10 +17,10 @@ namespace Project
                 Button2.Visible = false;
                 Button3.Visible = true;
                 Button4.Visible = true;
-                Button5.Visible = true;
-                Button5.Text = "Hello " + Request.Cookies["login"]["username"];
+                Button5.Visible = false;
+                Button4.Text = "Hello " + Request.Cookies["login"]["username"];
             }
-            if (Request.Cookies["admin"] != null)
+            else if (Request.Cookies["admin"] != null)
             {
                 Button1.Visible = false;
                 Button2.Visible = false;

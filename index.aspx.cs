@@ -118,5 +118,18 @@ namespace Project
             ProductList.DataBind();
             mySqlConnection.Close();
         }
+
+        protected void ProductList_ItemCommand(object source,DataListCommandEventArgs e)
+        {
+            Session["addproduct"] = true;
+            if (e.CommandName == "AddToCart")
+            {
+                // Creating a Quantity object for the Quantity Dropdown List
+                DropDownList quantityList = (DropDownList)(e.Item.FindControl("Quantity"));
+                // Redirecting to a Cart page by passing Product Id and Quantity as custom url
+                Response.Redirect("AddToCart.aspx?id=" + e.CommandArgument.ToString() +
+                    "&quantity" + quantityList.SelectedItem.ToString());
+            }
+        }
     }
 }

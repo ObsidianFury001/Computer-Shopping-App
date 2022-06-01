@@ -59,7 +59,7 @@ namespace Project
                         //MessageBox.Text = "Sucessfully Signed In!!!";
                         while (reader.Read())
                         {
-                            Response.Write("<script>alert('Successfully Signed In!');</script>");
+                            //Response.Write("<script>alert('Successfully Signed In!');</script>");
 
                             //Response.Write("<script>alert('" +
                             //    "Successfully Signed In! Welcome " +
@@ -82,6 +82,7 @@ namespace Project
                             authCookie["role"] = reader.GetValue(7).ToString();
 
                             authCookie.Expires = DateTime.Now.AddDays(1d);
+                            Response.Write(authCookie.ToString());
                             Response.Cookies.Add(authCookie);
                         }
 

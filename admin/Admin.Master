@@ -22,15 +22,20 @@
 <body>
     <form id="form1" runat="server">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top">
-            <a class="navbar-brand align-items-center" href="index.aspx">
+        <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top" 
+            style="width: clamp(10%, 100%, 101%)">
+            <center><div>
+            <a class="navbar-brand align-items-center" href="index.aspx"  
+                style="font-weight: 600;
+
+                font-size: 22px;" >
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
                 Computer Sphere</a>
-            <!-- Navbar toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-
+                <!-- Navbar toggler -->
+                <button class="navbar-toggler w3-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button></div>
+            </center>
             <div class="collapse navbar-collapse justify-content-lg-around" id="navbarNavAltMarkup">
                 <center>
                     <ul class="navbar-nav justify-content-evenly align-items-center w3-padding w3-margin">
@@ -63,7 +68,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <div>
-        <center><footer class="w3-text-cyan footer">&copy; All Rights Reserved | ADMIN MODULE | COMPUTERSPHERE &trade; | 2022</footer></center>
+        <center><hr class="hr-purple" /><footer class="w3-text-cyan footer">&copy; All Rights Reserved | WELCOME ADMIN | COMPUTERSPHERE &trade; | 2022</footer></center>
         </div>
     </form>
 </body>
