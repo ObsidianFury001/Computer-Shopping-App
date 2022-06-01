@@ -44,12 +44,15 @@
                     </asp:UpdatePanel>
                   <div class="w3-panel panel-orange rounded-4" 
                     style="width: clamp(10%, 77%, 100%);
-                            height: 100px;">
+                            height: 150px;
+                            padding: 1%;">
                     <table class="col-12">
-                        <tr><td class="w3-margin w3-padding-16">
-                            <div style="font-size: clamp(small, 20px, larger);">Product Search</div>
-                        </td>
-                            <td class="w3-margin w3-padding-16"><asp:DropDownList ID="searchFilter" runat="server"
+                        <tr class="w3-margin w3-padding"><center>
+                                <h style="font-size: clamp(20px, 28px, 50px);">Product Search</h>
+                            </center>
+                        </tr>
+                        <tr>
+                            <td class="w3-margin w3-padding"><asp:DropDownList ID="searchFilter" runat="server"
                                     AutoPostBack="True"
                                     CssClass="btn btn-primary dropdown rounded-2"
                                     OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
@@ -58,13 +61,14 @@
                                     Height="48px">
                                 </asp:DropDownList>
                             </td>
-                            <td class="w3-margin-left w3-margin">
+                            <td class="w3-margin w3-padding">
                                 <asp:TextBox ID="SearchBox" runat="server" 
                                     CssClass="form-control-lg"  placeholder="Search" 
-                                    style="width: clamp(30%, 20vw, 100%);">
+                                    style="width: clamp(30%, 18vw, 100%);
+                                            height: 48px;">
                                 </asp:TextBox>
                             </td>
-                            <td class="w3-margin">
+                            <td class="w3-margin w3-padding">
                                 <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn linkButton"
                                     style="width: clamp(10%, 20vw, 100%);
                                             height:48px;" OnClick="SearchButton_Click"/>                  
@@ -77,6 +81,8 @@
               
             <br />
               <asp:DataList ID="ProductList" runat="server" 
+                OnItemCommand="ProductList_ItemCommand"
+                OnItemDataBound="ProductList_ItemDataBound"
                 RepeatColumns="2" 
                 RepeatDirection="Horizontal"
                 BackColor="#9999ff"
@@ -85,10 +91,7 @@
                 CellPadding="1" 
                 CellSpacing="1"
                 CssClass="w3-margin "
-                GridLines="Both"
-                OnItemCommand="ProductList_ItemCommand"
-
-                  >
+                GridLines="Both">
 
                 <FooterStyle BackColor="#F7DFB5 " ForeColor="#8C4510" />
                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -117,7 +120,7 @@
                                     width: var(--cell-width);" >
                                 <asp:Image ID="Image1" runat="server" Width="450px" Height="400px" ImageUrl='<%# Eval("image")%>' class="rounded-5 w3-margin" style="border: 4px solid orange;"/>
                             </td>
-                        <!-- Price and Stock-->
+                        <!-- Price -->
                         <tr class="w3-yellow" style="width: var(--cell-width);" >
                             <td style="text-align: center;
                                     width: var(--cell-width);" >&nbsp;Price:&nbsp;AED&nbsp;
@@ -125,19 +128,21 @@
                                     Font-Bold="true"></asp:Label>
                             </td>             
                         </tr>
-                        <tr class="w3-ios" style="width: var(--cell-width);" > 
+                        <!-- Stock-->
+                        <tr class="w3-ios-green" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     width: var(--cell-width);" >&nbsp;Stock:&nbsp;
                                 <asp:Label ID="Stock" runat="server" Text='<%#Eval("stock")%>'></asp:Label>
                             </td>               
                         </tr> 
-                        <!-- Category and Description-->
+                        <!-- Category -->
                         <tr class="w3-orange" style="width: var(--cell-width);" >
                             <td style="text-align: center;
                                     width: var(--cell-width);">Category:&nbsp;
                                 <asp:Label ID="Category" runat="server" Text='<%#Eval("category")%>'></asp:Label>
                             </td>  
                         </tr>
+                        <!-- Description -->
                         <tr class="w3-ios-orange text-white" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     height: 120px;" >Description:&nbsp;
@@ -145,7 +150,7 @@
                             </td>  
                         </tr>    
                         
-                        <!-- Product Quantiy and Add to cart Controls -->
+                        <!-- Quantity Selector -->
                         <tr class="w3-black ">
                             <td align="center" 
                                     height: 150px;">
@@ -162,6 +167,7 @@
                                 </asp:DropDownList>
                                </div>
                                 <hr class="hr-red" />
+                        <!-- Add to cart Button -->
                             <asp:Button ID="AddToCartButton" runat="server"
                                 CssClass="btn btn-dark w3-margin linkButton"
                                 Width="200px" Height="50px" 

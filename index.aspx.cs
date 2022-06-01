@@ -127,9 +127,14 @@ namespace Project
                 // Creating a Quantity object for the Quantity Dropdown List
                 DropDownList quantityList = (DropDownList)(e.Item.FindControl("Quantity"));
                 // Passing Product Id and Quantity as using Query String ?
-                Response.Redirect("AddToCart.aspx?id=" + e.CommandArgument.ToString() +
+                Response.Redirect("index.aspx?id=" + e.CommandArgument.ToString() +
                     "&quantity" + quantityList.SelectedItem.ToString());
             }
+        }
+
+        protected void ProductList_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+           
         }
     }
 }
