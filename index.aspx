@@ -175,9 +175,8 @@
                                 ForeColor="Cyan"
                                 Text="Add To Cart"
                                 CommandName="AddToCart"
-                                CommandArgument='<%#Eval("id") %>'
-                                >
-                            </asp:Button><br />
+                                CommandArgument="<%#Eval("id")%>">
+                            </asp:Button></span><br />
                                 <asp:Label ID="ProductID" runat="server" Text='<%#Eval("id")%>' Visible="false"></asp:Label>
                             </td>
                         </tr>

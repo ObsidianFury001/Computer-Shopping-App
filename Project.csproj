@@ -149,6 +149,7 @@
     <Content Include="images\icons\cart.svg" />
     <Content Include="images\icons\search.jpg" />
     <Content Include="images\icons\search.png" />
+    <Content Include="images\icons\sold.svg" />
     <Content Include="images\logo.gif" />
     <Content Include="images\logo2.jpg" />
     <Content Include="images\products\CORSAIR Vengeance RGB Pro 32GB.jpg" />

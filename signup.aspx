@@ -22,7 +22,8 @@
             <div class="form-row">
                 <h2 style="font-weight:700;">Sign Up</h2>
             </div><br />
-
+                    
+            <hr class="hr-orange" /><br />
             <div class="form-row"> 
                 <h4>First Name</h4>
             </div>
@@ -72,18 +73,6 @@
             </div>
             
             <div class="form-row">
-                <h4>Password</h4>
-            </div>
-            <div class="form-row">
-                <asp:TextBox ID="TextBox5" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
-                <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server"
-                    ControlToValidate="TextBox5"
-                    ErrorMessage="Password is required field."
-                    ForeColor="Red" 
-                    Font-Size="Smaller" ></asp:RequiredFieldValidator>
-            </div>
-            
-            <div class="form-row">
                 <h4>Phone</h4>
             </div>
             <div class="form-row">
@@ -94,9 +83,39 @@
                     ForeColor="Red" 
                     Font-Size="Smaller" ></asp:RequiredFieldValidator>
             </div>
-            
+        
+            <div class="form-row">
+                <h4>Password</h4>
+            </div>
+            <div class="form-row">
+                <asp:TextBox ID="TextBox5" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server"
+                    ControlToValidate="TextBox5"
+                    ErrorMessage="Password is required field."
+                    ForeColor="Red" 
+                    Font-Size="Smaller" ></asp:RequiredFieldValidator>
+            </div>
+
+            <div class="form-row">
+                <h4>Confirm Password</h4>
+            </div>
+            <div class="form-row">
+                <asp:TextBox ID="TextBox5Confirm" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator id="RequiredFieldValidator5Confirm" runat="server"
+                    ControlToValidate="TextBox5Confirm"
+                    ErrorMessage="Password is required field."
+                    ForeColor="Red" 
+                    Font-Size="Smaller" ></asp:RequiredFieldValidator>
+                <br />
+                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                    ControlToValidate="TextBox5Confirm"
+                    ControlToCompare="TextBox5"
+                    ErrorMessage="Passwords do not match"
+                    ForeColor="Red" 
+                    Font-Size="Smaller"></asp:CompareValidator>
+            </div>
             <div class="row w3-margin"> 
-                <asp:Button ID="sizzgnUp" runat="server" Text="Sign Up" CssClass="btn primary btn-block btn-lg" OnClick="signUp_Click"/>
+                <asp:Button ID="signUp" runat="server" Text="Sign Up" CssClass="btn primary btn-block btn-lg" OnClick="signUp_Click"/>
             </div>
             
             <center><h5><a href="login.aspx" class="hint" >Already Signed Up? Click here to Sign In</a></h5></center>

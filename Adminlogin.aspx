@@ -37,7 +37,7 @@
                 <h4>Password</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Password" ></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                     ControlToValidate="TextBox2"
                     ErrorMessage="Password is required."
@@ -46,7 +46,7 @@
             
             <div class="row">
                 <div class="form-check" >
-                        <asp:CheckBox ID="showPassword" runat="server" class="checkbox" type="checkbox" />
+                        <asp:CheckBox ID="showPassword" runat="server" class="checkbox" type="checkbox" OnCheckedChanged="showPassword_CheckedChanged" />
                         <label class="form-check-label" for="showPassword">Show Password</label>
                 </div>
             </div>

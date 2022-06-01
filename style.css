@@ -22,7 +22,7 @@
     --ios-red: #ff2d55;
     --red: #f14e4e;
     --orange: #f1bb4e;
-    --orange-bright: fb641b;
+    --orange-bright: #fb641b;
     --green: #84f14e;
     --teal: #00ffe3;
     --blue: #4e9af1;
@@ -255,11 +255,17 @@ hr {
     width: 90%;
 }
 
-
 .hr-purple {
     display: block;
     background-color: var(--primary);
     border-color: var(--primary);
+    opacity: 1;
+    width: 90%;
+}
+.hr-orange {
+    display: block;
+    background-color: var(--orange-bright);
+    border-color: var(--orange-bright);
     opacity: 1;
     width: 90%;
 }

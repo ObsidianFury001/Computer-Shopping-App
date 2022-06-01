@@ -132,9 +132,40 @@ namespace Project
             }
         }
 
+        // Change add to cart button if product is out of stock
         protected void ProductList_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-           
+            Label ProductinCartID = (Label)e.Item.FindControl("ProductID");
+            Label ProductinCartStock = (Label)e.Item.FindControl("Stock");
+            Button CartButton = (Button)e.Item.FindControl("AddToCartButton");
+
+            MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
+            mySqlConnection.Open();
+            
+            // Selecting product using ID
+            String query = "SELECT * FROM products where id = \"" + ProductinCartID.Text + "\";";
+            Response.Write(query);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(query, mySqlConnection);
+            String availableStock = "";
+
+            DataTable dt = new DataTable();
+            mySqlDataAdapter.Fill(dt);
+
+            // Accessing available stock field of selected product from database
+            if (dt.Rows.Count > 0)
+                availableStock = dt.Rows[0]["stock"].ToString();
+            mySqlConnection.Close();
+
+            if(availableStock.Equals("0"))
+            {
+                ProductinCartStock.Text = "Out of Stock";
+                CartButton.Enabled = false;
+
+            }
+            else // Set it to the availble stcok
+            {
+                ProductinCartStock.Text = availableStock;
+            }
         }
     }
 }
