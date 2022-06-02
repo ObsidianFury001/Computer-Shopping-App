@@ -204,6 +204,13 @@ body {
     color: var(--teal);
     font-weight: 500;
 }
+
+.continue-shopping {
+    width: 12em;
+    height: 50px;
+    border-color: var(--blue);
+    color: var(--blue);
+}
 .hint {
     color: cyan;
     text-decoration: none;
