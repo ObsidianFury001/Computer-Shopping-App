@@ -206,7 +206,8 @@ body {
 }
 
 .continue-shopping {
-    width: 12em;
+    padding: 1%;
+    width: 15em;
     height: 50px;
     border-color: var(--blue);
     color: var(--blue);
