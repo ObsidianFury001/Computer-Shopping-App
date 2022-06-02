@@ -41,28 +41,27 @@ namespace Project
 
             }
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
-                mySqlConnection.Open();
-                DataTable records = new DataTable();
+            mySqlConnection.Open();
+            DataTable records = new DataTable();
 
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(filterQuery , mySqlConnection);
-                mySqlDataAdapter.Fill(records);
-                try
-                {
-                    if (selectedCategory == records.Rows[0][2].ToString())
-                        ;
-                }
-                catch(Exception Ex)
-                {
-                    Response.Write("<script>alert('Product Category does not exist')");
-                }
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(filterQuery , mySqlConnection);
+            mySqlDataAdapter.Fill(records);
+            try
+            {
+                if (selectedCategory == records.Rows[0][2].ToString())
+                    ;
+            }
+            catch(Exception Ex)
+            {
+                Response.Write("<script>alert('Product Category does not exist')");
+            }
 
-                ProductList.DataSource = records;
-                ProductList.DataBind();
+            ProductList.DataSource = records;
+            ProductList.DataBind();
 
-                //if (String.Equals(selectedCategory, "Product Category"))
-                    //filterQuery = "SELECT * FROM website.products;";
-                mySqlConnection.Close();
-
+            //if (String.Equals(selectedCategory, "Product Category"))
+                //filterQuery = "SELECT * FROM website.products;";
+            mySqlConnection.Close();
         }
         private void GetData()
         {
@@ -130,8 +129,8 @@ namespace Project
                 // Creating a Quantity object for the Quantity Dropdown List
                 DropDownList quantityList = (DropDownList)(e.Item.FindControl("Quantity"));
                 // Passing Product Id and Quantity as using Query String ?
-                Response.Redirect("AddToCart.aspx?id=" + e.CommandArgument.ToString() +
-                    "&quantity" + quantityList.SelectedItem.ToString());
+                Response.Redirect("AddToCart.aspx?prod_id=" + e.CommandArgument.ToString() +
+                    "&quantity=" + quantityList.SelectedItem.ToString());
             }
         }
 

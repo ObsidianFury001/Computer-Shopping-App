@@ -17,9 +17,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-cart"><br />   
         <center>
-            <div class="card">
+            <div class="card cardCart">
                 <div class="row">
-                    <div class="col"><h1 class="display-5">Your Cart</h1></div>
+                    <div class="col">
+                        <asp:Label id="cartHeader" runat="server" CssClass="display-5" Text="Your Cart"></asp:Label>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col">
@@ -40,41 +42,42 @@
 
                             <AlternatingRowStyle BackColor="#DCDCDC" />
                             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" 
+                                Height="60px"
+                                HorizontalAlign="Center" />
                             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+                            <RowStyle BackColor="#EEEEEE" ForeColor="Black" 
+                                Height=80px
+                                HorizontalAlign="Center" />
                             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />
                             <SortedAscendingHeaderStyle BackColor="#0000A9" />
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#000065" />
                             <Columns>
-                                <asp:BoundField DataField="id" HeaderText="ORDER ID" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="prod_id" HeaderText="PRODUCT ID" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="prod_name" HeaderText="PRODUCT NAME" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="category" HeaderText="CATEGORY" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="price" HeaderText="PRICE" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="desc" HeaderText="DESCRIPTION" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>
                                 <%--<asp:ImageField  DataImageUrlField="image" HeaderText="IMAGE" >
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:ImageField>--%>
-                                <asp:BoundField DataField="stock" HeaderText="STOCK" >
-                                    <ItemStyle HorizontalAlign="Center" />
+                                <asp:BoundField DataField="id" HeaderText="ORDER ID" >
+                                    <ItemStyle />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="prod_id" HeaderText="PRODUCT ID" >
+                                    <ItemStyle />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="prod_name" HeaderText="PRODUCT NAME" >
+                                    <ItemStyle />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="category" HeaderText="CATEGORY" >
+                                    <ItemStyle />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="cost" HeaderText="COST" >
+                                    <ItemStyle />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="quantity" HeaderText="PRICE" >
+                                    <ItemStyle />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="amount" HeaderText="AMOUNT" >
-                                    <ItemStyle HorizontalAlign="Center" />
+                                    <ItemStyle />
                                 </asp:BoundField>
                                 <asp:CommandField DeleteText=Remove ShowDeleteButton="true"/>
                             </Columns>

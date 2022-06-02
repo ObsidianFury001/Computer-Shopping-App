@@ -54,8 +54,6 @@ namespace Project
                     //if (dataSet.Tables["auth"].Rows.Count == 1)
                     if (reader.HasRows)
                     {
-                        DateTime TimeNow = DateTime.Now;
-
                         //MessageBox.Text = "Sucessfully Signed In!!!";
                         while (reader.Read())
                         {
