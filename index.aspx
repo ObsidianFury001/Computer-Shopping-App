@@ -20,7 +20,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="page-index">
+    <div class="content">
         <center><br />
             <div class="container">
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -136,14 +136,14 @@
                             </td>               
                         </tr> 
                         <!-- Category -->
-                        <tr class="w3-orange" style="width: var(--cell-width);" >
+                        <tr class="w3-pink " style="width: var(--cell-width);" >
                             <td style="text-align: center;
                                     width: var(--cell-width);">Category:&nbsp;
                                 <asp:Label ID="Category" runat="server" Text='<%#Eval("category")%>'></asp:Label>
                             </td>  
                         </tr>
                         <!-- Description -->
-                        <tr class="w3-ios-orange text-white" style="width: var(--cell-width);" > 
+                        <tr class="w3-deep-purple text-white" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     height: 120px;" >Description:&nbsp;
                                 <asp:Label ID="Desc" runat="server" Text='<%#Eval("desc")%>'></asp:Label>
@@ -168,15 +168,14 @@
                                </div>
                                 <hr class="hr-red" />
                         <!-- Add to cart Button -->
-                            <asp:Button ID="AddToCartButton" runat="server"
+                            <br /><asp:Button ID="AddToCartButton" runat="server"
                                 CssClass="btn btn-dark w3-margin linkButton"
                                 Width="200px" Height="50px" 
                                 Font-Size="20px" 
                                 ForeColor="Cyan"
                                 Text="Add To Cart"
-                                CommandName="AddToCart"
-                                CommandArgument="<%#Eval("id")%>">
-                            </asp:Button></span><br />
+                                CommandName="AddToCart" 
+                                CommandArgument='<%#Eval("id")%>' />
                                 <asp:Label ID="ProductID" runat="server" Text='<%#Eval("id")%>' Visible="false"></asp:Label>
                             </td>
                         </tr>

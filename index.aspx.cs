@@ -118,16 +118,19 @@ namespace Project
             ProductList.DataBind();
             mySqlConnection.Close();
         }
-
+        
+        // Att to 
         protected void ProductList_ItemCommand(object source,DataListCommandEventArgs e)
         {
             Session["addproduct"] = true;
+            Response.Write(Session["addproduct"].ToString());
+
             if (e.CommandName == "AddToCart")
             {
                 // Creating a Quantity object for the Quantity Dropdown List
                 DropDownList quantityList = (DropDownList)(e.Item.FindControl("Quantity"));
                 // Passing Product Id and Quantity as using Query String ?
-                Response.Redirect("index.aspx?id=" + e.CommandArgument.ToString() +
+                Response.Redirect("AddToCart.aspx?id=" + e.CommandArgument.ToString() +
                     "&quantity" + quantityList.SelectedItem.ToString());
             }
         }
@@ -138,13 +141,12 @@ namespace Project
             Label ProductinCartID = (Label)e.Item.FindControl("ProductID");
             Label ProductinCartStock = (Label)e.Item.FindControl("Stock");
             Button CartButton = (Button)e.Item.FindControl("AddToCartButton");
-
+             
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();
             
             // Selecting product using ID
-            String query = "SELECT * FROM products where id = \"" + ProductinCartID.Text + "\";";
-            Response.Write(query);
+            String query = "SELECT * FROM products where id = " + ProductinCartID.Text + ";";
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(query, mySqlConnection);
             String availableStock = "";
 
@@ -156,7 +158,7 @@ namespace Project
                 availableStock = dt.Rows[0]["stock"].ToString();
             mySqlConnection.Close();
 
-            if(availableStock.Equals("0"))
+            if(Convert.ToInt32(availableStock) == 0)
             {
                 ProductinCartStock.Text = "Out of Stock";
                 CartButton.Enabled = false;
