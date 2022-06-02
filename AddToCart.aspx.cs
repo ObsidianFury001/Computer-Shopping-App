@@ -12,6 +12,7 @@ namespace Project
     public partial class AddToCart : System.Web.UI.Page
     {
         const String connectionString = "server=localhost;user id=root;password=root;database=website";
+        MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
@@ -36,7 +37,7 @@ namespace Project
                 try
                 {
                     Response.Write(product_id.ToString() + quantity.ToString());
-                    querySelectProducts = "SELECT * FROM website.products where id= " 
+                    querySelectProducts = "SELECT * FROM website.products where id= "
                         + product_id + ";";
                     //Response.Write(querySelectProducts);
                     MySqlCommand cmd1 = new MySqlCommand(querySelectProducts, mySqlConnection);
@@ -69,12 +70,12 @@ namespace Project
                                 + email + "\","
                                 + prod_id + ",\""
                                 + prod_name + "\",\""
-                                + category + "\"," 
-                                + cost + ",\"" 
+                                + category + "\","
+                                + cost + ",\""
                                 //+ desc + "\",\"" 
-                                + image + "\"," 
-                                + stock + "," 
-                                + quantity + "," 
+                                + image + "\","
+                                + stock + ","
+                                + quantity + ","
                                 + amount + ");";
                             Response.Write("Inserting to Cart: " + queryAddToCart);
                         }
@@ -92,7 +93,7 @@ namespace Project
 
 
                     DataTable cartRecords = new DataTable();
-                    queryCartProducts = "SELECT * FROM website.carts where customer_id = " + customer_id+";";
+                    queryCartProducts = "SELECT * FROM website.carts where customer_id = " + customer_id + ";";
                     MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryCartProducts, mySqlConnection);
                     mySqlDataAdapter.Fill(cartRecords);
                     CartView.DataSource = cartRecords;
@@ -111,8 +112,7 @@ namespace Project
         }
 
         protected void BindCart(int customer_id, MySqlConnection mySqlConnection)
-        {
-
+        { 
             DataTable cartRecords = new DataTable();
             string queryCartProducts = "SELECT * FROM website.carts where customer_id = " + customer_id + ";";
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryCartProducts, mySqlConnection);
@@ -124,12 +124,15 @@ namespace Project
             DataTable CartItemsTable = new DataTable();
             MySqlDataAdapter mySqlDataAdapter2 = new MySqlDataAdapter(queryCartNumberOfItems, mySqlConnection);
             mySqlDataAdapter.Fill(CartItemsTable);
-            CartItems = int.Parse(CartItemsTable);
+            int NumberOfcartItems = GetNumberOfcartItems(customer_id);
 
             if (CartView.Rows.Count > 0)
             {
                 OrderButton.Enabled = true;
-                cartHeader.Text = "You have " + cartItems + " in your Shopping Cart.";
+                if (NumberOfcartItems == 1)
+                    cartHeader.Text = "You have " + NumberOfcartItems + " item in your Shopping Cart.";
+                else if (NumberOfcartItems > 1)
+                    cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
             }
             else
             {
@@ -138,5 +141,44 @@ namespace Project
             }
 
         }
+        protected int GetNumberOfcartItems(int customer_id)
+        {
+            mySqlConnection.Open();
+            string queryCartNumberOfItems = "SELECT COUNT(*) FROM website.carts;";
+            MySqlCommand cmd2 = new MySqlCommand(queryCartNumberOfItems, mySqlConnection);
+            MySqlDataReader reader1 = cmd2.ExecuteReader();
+            if (reader1.HasRows)
+            {
+                while (reader1.Read())
+                {
+                    return int.Parse(reader1.GetValue(0).ToString());
+                }
+            }
+            mySqlConnection.Close();
+            return 0;
+        }
+        //protected void ClearCart_Click(object sender, EventArgs e)
+        //{
+        //    String query = "DELETE FROM website.carts` WHERE (id = "\""++"\") and (email = \""+email+"\");";
+
+        //    mySqlConnection.Open();
+        //    //Response.Write(query);
+        //    MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+        //    int val = mySqlCommand.ExecuteNonQuery();
+
+        //    if (val == 1)
+        //    {
+        //        Response.Write("<script>alert('Sucessfully Signed Up!!!');</script>");
+        //        Response.Redirect("login.aspx");
+        //    }
+        //    else
+        //        Response.Write("<script>alert('Error Occured!!!');</script>");
+        //}
+
+        //protected void CartView_DeleteItem(object sender, GridViewDeletedEventArgs e)
+        //{
+        //    //DataTable cartItems = new DataTable();
+        //    //cartItems = (DataTable)Session["cartItems"];
+        //}
     }
 }

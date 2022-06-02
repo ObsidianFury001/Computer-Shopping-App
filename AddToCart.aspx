@@ -22,7 +22,7 @@
                     <div class="col">
                         <asp:Label id="cartHeader" runat="server" CssClass="display-5" Text="Your Cart"></asp:Label>
                     </div>
-                </div>
+                </div><hr class="hr-teal"/>
                 <div class="row">
                     <div class="col">
                           <asp:Button ID="Continue" runat="server" 
@@ -30,7 +30,7 @@
                             Text="Continue Shopping"/>
                         <asp:Button ID="ClearCart" runat="server" 
                             CssClass="btn btn-dark w3-margin linkButton continue-shopping"
-                            Text="Clear Cart" />
+                            Text="Clear Cart"/>
                     </div>
                 </div>
                 <div class="row">
