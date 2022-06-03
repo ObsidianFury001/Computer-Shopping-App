@@ -16,7 +16,7 @@ namespace Project.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["admin"] != null)
-                Response.Redirect("~/admin/AdminAddProduct.aspx");
+                Response.Redirect("~/admin/AdminHome.aspx");
         }
         protected void loginButton_Click(object sender, EventArgs e)
         {
@@ -78,7 +78,7 @@ namespace Project.admin
                             Response.Cookies.Add(adminCookie);
                         }
 
-                        Response.Redirect("admin/AdminAddProduct.aspx");
+                        Response.Redirect("admin/AdminHome.aspx");
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }

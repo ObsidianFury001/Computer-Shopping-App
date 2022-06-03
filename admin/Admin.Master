@@ -29,7 +29,6 @@
             <center><div>
             <a class="navbar-brand align-items-center" href="index.aspx"  
                 style="font-weight: 600;
-
                 font-size: 22px;" >
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
                 Computer Sphere</a>
@@ -42,7 +41,7 @@
                 <center>
                     <ul class="navbar-nav justify-content-evenly align-items-center w3-padding w3-margin">
                     <li class="nav-item">
-                        <a id="link1" class="nav-link nav-links2" href="#">Add Product</a>
+                        <a id="link1" class="nav-link nav-links2" href="AddProduct.aspx">Add Product</a>
                     </li>
                     <li class="nav-item">
                         <a id="link2" class="nav-link nav-links2" href="#">Update Product</a>
@@ -67,7 +66,8 @@
                 </div>
             </div>
         </nav>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <center><hr class="hr-purple" /></center>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <div>
         <center><hr class="hr-purple" /><footer class="w3-text-cyan footer">&copy; All Rights Reserved | WELCOME ADMIN | COMPUTERSPHERE &trade; | 2022</footer></center><br />

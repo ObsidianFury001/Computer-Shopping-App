@@ -27,7 +27,7 @@ namespace Project
                 Button3.Visible = true;
                 Button4.Visible = true;
                 Button5.Visible = false;
-                Response.Redirect("admin/AdminAddProduct.aspx");
+                Response.Redirect("admin/AdminHome.aspx");
             }
             else
             {

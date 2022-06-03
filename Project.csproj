@@ -110,7 +110,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddToCart.aspx" />
-    <Content Include="admin\AdminAddProduct.aspx" />
+    <Content Include="admin\AddProduct.aspx" />
+    <Content Include="admin\AdminHome.aspx" />
     <Content Include="Adminlogin.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -216,6 +217,13 @@
     <Compile Include="AddToCart.aspx.designer.cs">
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,12 +231,12 @@
     <Compile Include="admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="admin\AdminAddProduct.aspx.cs">
-      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+    <Compile Include="admin\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\AdminAddProduct.aspx.designer.cs">
-      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+    <Compile Include="admin\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Adminlogin.aspx.cs">
       <DependentUpon>Adminlogin.aspx</DependentUpon>
