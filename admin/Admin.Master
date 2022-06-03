@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark rounded-bottom sticky-top" 
             style="width: clamp(10%, 100%, 101%)">
             <center><div>
-            <a class="navbar-brand align-items-center" href="index.aspx"  
+            <a class="navbar-brand align-items-center" href="AdminHome.aspx"  
                 style="font-weight: 600;
                 font-size: 22px;" >
                 <img id="Image1" src="../images/logo.gif" width="60" height="40" class="rounded-2" alt="" />
@@ -46,15 +46,15 @@
                     <li class="nav-item">
                         <a id="link2" class="nav-link nav-links2" href="#">Update Product</a>
                     </li>
-                    <li class="nav-item">
+                    <%--<li class="nav-item">
                         <a id="link3" class="nav-link nav-links2" href="#">Add more Stock</a>
-                    </li>
+                    </li>--%>
                     <li class="nav-item">
                         <a id="link4" class="nav-link nav-links2" href="#">Delete Product</a>
                     </li>
-                    <li class="nav-item">
+                 <%--   <li class="nav-item">
                         <a id="link5" class="nav-link nav-links2" href="#">Change Password</a>
-                    </li>
+                    </li>--%>
                 </ul>
                 </center>
                 <div class="w3-center">

@@ -68,7 +68,7 @@
                 <h4>Product Name</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox1" runat="server" cssclass="form-control" placeholder="First Name"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" cssclass="form-control text-capitalize" placeholder="Product Name"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                     ControlToValidate="TextBox1"
                     ErrorMessage="Product Name is a required field."
@@ -80,7 +80,7 @@
                 <h4>Category</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Category"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control capitalize"  placeholder="Category"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                     ControlToValidate="TextBox2"
                     ErrorMessage="Category is a required field."
@@ -113,17 +113,17 @@
                     ErrorMessage="Upload Jpegs and Gifs only."
                     ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.jpg|.JPG|.jpeg|.JPEG.|.png|.PNG)$"
                     ControlToValidate="FileUpload1">  
-                </asp:RegularExpressionValidator> 
-                <asp:Label id="Label1" runat="server" CssClass="display-5" Text=""></asp:Label>
+                </asp:RegularExpressionValidator> <br />
+                <asp:Label id="Label1" runat="server" Text=""></asp:Label>
             </div>
             
             <div class="form-row">
                 <h4>Product Stock</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox6" runat="server" cssclass="form-control" placeholder="Stock"></asp:TextBox>
-                <asp:RequiredFieldValidator id="RequiredFieldValidator6" runat="server"
-                    ControlToValidate="TextBox6"
+                <asp:TextBox ID="TextBox4" runat="server" cssclass="form-control" placeholder="Stock"></asp:TextBox>
+                <asp:RequiredFieldValidator id="RequiredFieldValidator4" runat="server"
+                    ControlToValidate="TextBox4"
                     ErrorMessage="Stock is a required field."
                     ForeColor="Red" 
                     Font-Size="Smaller" ></asp:RequiredFieldValidator>

@@ -146,7 +146,7 @@
                         <tr class="w3-deep-purple text-white" style="width: var(--cell-width);" > 
                             <td style="text-align: center;
                                     height: 120px;" >Description:&nbsp;
-                                <asp:Label ID="Desc" runat="server" Text='<%#Eval("desc")%>'></asp:Label>
+                                <asp:Label ID="Desc" runat="server" Text='<%#Eval("description")%>'></asp:Label>
                             </td>  
                         </tr>    
                         

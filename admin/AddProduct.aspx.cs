@@ -1,30 +1,79 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace Project.admin
 {
 	public partial class AddProduct : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-			if (Request.Cookies["admin"] == null)
-				Response.Redirect("~/index.aspx");
-		}
+        const String connectionString = "server=localhost;user id=root;password=root;database=website";
+        //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Request.Cookies["login"] != null)
+                Response.Redirect("index.aspx");
+        }
 
         protected void AddProductButton_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
-            {
-                FileUpload1.SaveAs("~/images/products/" + FileUpload1.FileName);
-                Label1.Text = "File Uploaded: " + FileUpload1.FileName;
-            }
+
+            if (String.IsNullOrEmpty(TextBox1.Text.Trim()) ||
+                String.IsNullOrEmpty(TextBox2.Text.Trim()) ||
+                String.IsNullOrEmpty(TextBox3.Text.Trim()) ||
+                String.IsNullOrEmpty(TextBox4.Text.Trim()) ||
+                String.IsNullOrEmpty(TextBox5.Text.Trim()) ||
+                       !FileUpload1.HasFile)
+                Response.Write("<script>alert('Please enter all product details...');</script>"); 
             else
+                AddNewProduct();            
+        }
+        protected void AddNewProduct()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
+            try
             {
-                Label1.Text = "No File Uploaded.";
+                String query = "INSERT INTO website.products(prod_name, category, description, image, stock, cost) VALUES( \""
+                       + TextBox1.Text.Trim() + "\",\""
+                       + TextBox2.Text.ToUpper().Trim() + "\",\""
+                       + TextBox3.Text + "\",\""
+                       + "images/products/" + FileUpload1.FileName.ToString() + "\","
+                       + TextBox4.Text.Trim() + ","
+                       + TextBox5.Text.Trim() + ");";
+
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+
+                //Response.Write(query);
+                int val = mySqlCommand.ExecuteNonQuery();
+                if (val == 1)
+                {
+                    string fileName = Path.Combine(Server.MapPath("/images/products"), FileUpload1.FileName);
+                    Response.Write("<script>alert('Sucessfully Added your Product!!!');</script>");
+                    FileUpload1.SaveAs(fileName);
+                }
+                else
+                    Response.Write("<script>alert('Error Occured!!!');</script>");
+
+                Response.Write("After IF");
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                TextBox3.Text = "";
+                TextBox4.Text = "";
+                TextBox5.Text = "";
+                mySqlConnection.Close();
+            }
+            catch (Exception Ex)
+            {
+                Response.Write("<script>alert('Fatal Error Occured...'" + Ex.Message + "');</script>");
+            }
+            finally
+            {
+                mySqlConnection.Close();
             }
         }
     }
