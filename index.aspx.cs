@@ -118,8 +118,8 @@ namespace Project
             mySqlConnection.Close();
         }
         
-        // Att to 
-        protected void ProductList_ItemCommand(object source,DataListCommandEventArgs e)
+        // Add to Cart
+        protected void ProductList_ItemCommand(object source, DataListCommandEventArgs e)
         {
             Session["addproduct"] = true;
             Response.Write(Session["addproduct"].ToString());

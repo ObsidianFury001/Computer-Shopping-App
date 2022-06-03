@@ -24,13 +24,13 @@ namespace Project
         protected global::System.Web.UI.WebControls.Label cartHeader;
 
         /// <summary>
-        /// Continue control.
+        /// CartView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Continue;
+        protected global::System.Web.UI.WebControls.GridView CartView;
 
         /// <summary>
         /// ClearCart control.
@@ -42,15 +42,6 @@ namespace Project
         protected global::System.Web.UI.WebControls.Button ClearCart;
 
         /// <summary>
-        /// CartView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CartView;
-
-        /// <summary>
         /// OrderButton control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,14 @@ namespace Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button OrderButton;
+
+        /// <summary>
+        /// cartFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label cartFooter;
     }
 }

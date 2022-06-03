@@ -16,38 +16,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="page-cart"><br />   
-        <center>
+                <center>
             <div class="card cardCart">
+                <center>
                 <div class="row">
                     <div class="col">
                         <asp:Label id="cartHeader" runat="server" CssClass="display-5" Text="Your Cart"></asp:Label>
                     </div>
                 </div><hr class="hr-teal"/>
+                        <a ID="Continue"
+                            class="nav-link " href="index.aspx">Continue Shopping</a>
                 <div class="row">
                     <div class="col">
-                          <asp:Button ID="Continue" runat="server" 
-                            CssClass="btn btn-dark w3-margin linkButton continue-shopping"
-                            Text="Continue Shopping"/>
-                        <asp:Button ID="ClearCart" runat="server" 
-                            CssClass="btn btn-dark w3-margin linkButton continue-shopping"
-                            Text="Clear Cart"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" 
+                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="1" GridLines="Vertical" 
                             ShowFooter="True"
                             Width="1200px"
-                            EmptyDataText="You have no products in your shopping cart.">
+                            OnRowDeleting="CartView_RowDeleting"
+                            CellSpacing="2">
 
                             <AlternatingRowStyle BackColor="#DCDCDC" />
                             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" 
-                                Height="60px"
+                                BorderColor=""
+                                BorderWidth="4px"
+                                Height="80px"
                                 HorizontalAlign="Center" />
                             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
                             <RowStyle BackColor="#EEEEEE" ForeColor="Black" 
-                                Height=80px
+                                Font-Bold="true"
+                                Width="500px"
+                                Height="100px"
                                 HorizontalAlign="Center" />
                             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -55,9 +53,6 @@
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#000065" />
                             <Columns>
-                                <%--<asp:ImageField  DataImageUrlField="image" HeaderText="IMAGE" >
-                                    <ItemStyle HorizontalAlign="Center" />
-                                </asp:ImageField>--%>
                                 <asp:BoundField DataField="id" HeaderText="ORDER ID" >
                                     <ItemStyle />
                                 </asp:BoundField>
@@ -70,6 +65,9 @@
                                 <asp:BoundField DataField="category" HeaderText="CATEGORY" >
                                     <ItemStyle />
                                 </asp:BoundField>
+                                <asp:ImageField  DataImageUrlField="image" HeaderText="IMAGE" >
+                                    <ControlStyle Width="300px" Height="180px" />
+                                </asp:ImageField>
                                 <asp:BoundField DataField="cost" HeaderText="COST" >
                                     <ItemStyle />
                                 </asp:BoundField>
@@ -86,12 +84,19 @@
                 </div>
                 <div class="row">
                     <div class="col">
+                        <asp:Button ID="ClearCart" runat="server" 
+                            CssClass="btn linkButton2 "
+                            Text="Clear Cart"/>
                         <asp:Button ID="OrderButton" runat="server" 
-                            CssClass="btn btn-dark w3-margin linkButton continue-shopping"
-                            Text="Place Order" />
+                            CssClass="btn linkButton2 "
+                            Text="Place Order" OnClick="OrderButton_Click" />
                     </div>
-                </div>
-            </div> 
-        </center><br />
+                </div>              
+                <div class="row">
+                    <div class="col">
+                        <asp:Label id="cartFooter" runat="server" CssClass="display-5" Text=""></asp:Label>
+                    </div>
+                </div><hr class="hr-teal"/></center>
+        </div> <br /></center>
     </div>
 </asp:Content>

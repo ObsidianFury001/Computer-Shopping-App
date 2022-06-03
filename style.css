@@ -113,7 +113,7 @@ body {
     padding: 1%;
 }
 .footer {
-    color: teal;
+    color: var(--teal);
     text-transform: uppercase;
     background-color: var(--nav);
     padding: 0% 2%;
@@ -161,7 +161,8 @@ body {
     border: 0.15rem solid var(--lightpurple);
     border-radius: .75rem;
     text-decoration: none;
-    width: 9.2em;
+    width: clamp(8em, 9.2em, 11em);
+    height: 50px;
     font-size: clamp(40%, 16px, 130%);
     font-weight: 300;
     color: var(--lightpurple);
@@ -176,22 +177,21 @@ body {
 .linkButton2 {
     padding: 1%;
     margin: 0.5em 0.55em;
-    border: 0.15rem solid var(--lightpurple);
+    border: 0.15em solid var(--orange-bright);
     border-radius: .75rem;
+    background-color: var(--nav);
+    color: var(--orange-bright);
     text-decoration: none;
-    width: 60%;
+    width: clamp(40%, 30px, 130%);
     height: 50px;
     font-size: clamp(40%, 16px, 130%);
     font-weight: 300;
-    color: var(--lightpurple);
     text-align: center;
     text-transform: uppercase;
     transition: all 0.5s ease 0s;
-    color: var(--lightpurple);
-    background-color: var(--nav);
 }
 
-.linkButton:hover {
+.linkButton2:hover {
     border: 0.15em solid var(--hot-pink);
     border-radius: 1.5rem;
     color: var(--hot-pink);
@@ -199,18 +199,40 @@ body {
     transition: all 0.5s ease 0s;
 }
 
+.linkButton:hover {
+    border: 0.15em solid var(--teal);
+    color: var(--teal);
+    font-weight: 500;
+}
 .active-link-button {
     border: 0.15em solid var(--teal);
     color: var(--teal);
     font-weight: 500;
 }
 
-.continue-shopping {
-    padding: 2%;
-    width: 15em;
-    height: 50px;
-    border-color: var(--blue);
-    color: var(--blue);
+.cartButton {
+    padding: 1%;
+    margin: 0.5em 0.55em;
+    color: var(--orange);
+    border: 0.25rem solid var(--orange-bright);
+    border-radius: .75rem;
+    width: 15vw;
+    height: 10vh;
+    font-size: clamp(40%, 16px, 130%);
+    font-weight: 300;
+    color: var(--orange-bright);
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
+    background-color: var(--nav);
+}
+.cartButton:hover {
+    border: 0.25em solid var(--hot-pink);
+    border-radius: 1.5rem;
+    color: var(--hot-pink);
+    background-color: var(--nav);
+    transform: translateY(px);
+    transition: all 0.5s ease 0s;
 }
 .hint {
     color: cyan;
@@ -233,7 +255,7 @@ body {
     height: clamp(45%, 50%, auto);
     padding: 3%;
     border: 5px solid orange;
-        background-color: #161743;
+    background-color: #161743;
 /*    background-color: #080438;*/
     border-radius: 1rem;
 }

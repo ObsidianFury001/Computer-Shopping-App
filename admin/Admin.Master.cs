@@ -46,6 +46,7 @@ namespace Project.admin
             authcookie.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(authcookie);
             Response.Redirect("~/index.aspx");
+            Session.Abandon();
         }
         protected void Button5_Click(object sender, EventArgs e)
         {

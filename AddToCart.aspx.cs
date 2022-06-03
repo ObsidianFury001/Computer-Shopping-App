@@ -15,6 +15,7 @@ namespace Project
         MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            cartFooter.Visible = false;
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();
             if (Request.Cookies["login"] == null)
@@ -36,7 +37,7 @@ namespace Project
 
                 try
                 {
-                    Response.Write(product_id.ToString() + quantity.ToString());
+                    //Response.Write(product_id.ToString() + quantity.ToString());
                     querySelectProducts = "SELECT * FROM website.products where id= "
                         + product_id + ";";
                     //Response.Write(querySelectProducts);
@@ -59,25 +60,31 @@ namespace Project
                             int stock = int.Parse(reader1.GetValue(5).ToString());
                             int cost = int.Parse(reader1.GetValue(6).ToString());
                             //Response.Write("Product Values for product ID" + "," + prod_id + "," + prod_name + category + "," + desc + "," + image + "," + stock + "," + cost);
-
-                            // Calculating total amount
-                            int amount = stock * cost;
-                            // Cart Table Fields
-                            // id, customer_id, email, prod_id, prod_name, category, cost, desc, image, stock, quantity, amount
-                            // -------------------------------------------------
-                            queryAddToCart = "INSERT INTO website.carts (customer_id, email, prod_id, prod_name, category, cost, desc, image, stock, quantity, amount) VALUES ("
-                                + customer_id + ",\""
-                                + email + "\","
-                                + prod_id + ",\""
-                                + prod_name + "\",\""
-                                + category + "\","
-                                + cost + ",\""
-                                //+ desc + "\",\"" 
-                                + image + "\","
-                                + stock + ","
-                                + quantity + ","
-                                + amount + ");";
-                            Response.Write("Inserting to Cart: " + queryAddToCart);
+                            if(quantity > stock)
+                            {
+                                Response.Write("<script>alert('Stock Not available!!');</script>");
+                            }
+                            else
+                            {
+                                // Calculating total amount
+                                int amount = cost * quantity;
+                                // Cart Table Fields
+                                // id, customer_id, email, prod_id, prod_name, category, cost, desc, image, stock, quantity, amount
+                                // -------------------------------------------------
+                                queryAddToCart = "INSERT INTO website.carts (customer_id, email, prod_id, prod_name, category, cost, image, stock, quantity, amount) VALUES ("
+                                    + customer_id + ",\""
+                                    + email + "\","
+                                    + prod_id + ",\""
+                                    + prod_name + "\",\""
+                                    + category + "\","
+                                    + cost + ",\""
+                                    //+ desc + "\",\"" 
+                                    + image + "\","
+                                    + stock + ","
+                                    + quantity + ","
+                                    + amount + ");";
+                                //Response.Write("Inserting to Cart: " + queryAddToCart);
+                            }
                         }
                         reader1.Close();
                     }
@@ -123,21 +130,35 @@ namespace Project
 
             DataTable CartItemsTable = new DataTable();
             MySqlDataAdapter mySqlDataAdapter2 = new MySqlDataAdapter(queryCartNumberOfItems, mySqlConnection);
-            mySqlDataAdapter.Fill(CartItemsTable);
+            mySqlDataAdapter2.Fill(CartItemsTable);
             int NumberOfcartItems = GetNumberOfcartItems(customer_id);
-
+            int GrandTotal = 0;
             if (CartView.Rows.Count > 0)
             {
+                ClearCart.Enabled = true;
                 OrderButton.Enabled = true;
                 if (NumberOfcartItems == 1)
                     cartHeader.Text = "You have " + NumberOfcartItems + " item in your Shopping Cart.";
                 else if (NumberOfcartItems > 1)
                     cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
+
+                int i = 0;
+                GrandTotal = 0;
+                while (i < NumberOfcartItems)
+                {
+                    GrandTotal += int.Parse(cartRecords.Rows[i]["amount"].ToString());
+                    i = i + 1;
+                }
+
+                cartFooter.Text = "Grand Total = " + GrandTotal + " AED";
+                cartFooter.Visible = false; 
             }
             else
             {
+                ClearCart.Enabled = false;
                 OrderButton.Enabled = false;
                 cartHeader.Text = "You have no products in your shopping cart.";
+                cartFooter.Text = "";
             }
 
         }
@@ -156,6 +177,16 @@ namespace Project
             }
             mySqlConnection.Close();
             return 0;
+        }
+
+        protected void OrderButton_Click(object sender, EventArgs e)
+        {
+            cartFooter.Visible = true;
+        }
+
+        protected void CartView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            
         }
         //protected void ClearCart_Click(object sender, EventArgs e)
         //{
