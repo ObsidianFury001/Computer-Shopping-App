@@ -126,14 +126,14 @@ namespace Project
             mySqlDataAdapter.Fill(cartRecords);
             CartView.DataSource = cartRecords;
             CartView.DataBind();
-            string queryCartNumberOfItems = "SELECT COUNT(*) FROM website.carts;";
-
+            string queryCartNumberOfItems = "SELECT COUNT(*) FROM website.carts where customer_id = " + customer_id + ";";
+            //Response.Write(queryCartNumberOfItems);
             DataTable CartItemsTable = new DataTable();
             MySqlDataAdapter mySqlDataAdapter2 = new MySqlDataAdapter(queryCartNumberOfItems, mySqlConnection);
             mySqlDataAdapter2.Fill(CartItemsTable);
             int NumberOfcartItems = GetNumberOfcartItems(customer_id);
             int GrandTotal = 0;
-            if (CartView.Rows.Count > 0)
+            if (CartItemsTable.Rows.Count > 0)
             {
                 ClearCart.Enabled = true;
                 OrderButton.Enabled = true;
@@ -142,14 +142,9 @@ namespace Project
                 else if (NumberOfcartItems > 1)
                     cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
 
-                int i = 0;
                 GrandTotal = 0;
-                while (i < NumberOfcartItems)
-                {
-                    GrandTotal += int.Parse(cartRecords.Rows[i]["amount"].ToString());
-                    i = i + 1;
-                }
-
+                if (NumberOfcartItems == 1)
+                    GrandTotal = int.Parse(cartRecords.Rows[0]["amount"].ToString());
                 cartFooter.Text = "Grand Total = " + GrandTotal + " AED";
                 cartFooter.Visible = false; 
             }
@@ -165,7 +160,7 @@ namespace Project
         protected int GetNumberOfcartItems(int customer_id)
         {
             mySqlConnection.Open();
-            string queryCartNumberOfItems = "SELECT COUNT(*) FROM website.carts;";
+            string queryCartNumberOfItems ="SELECT COUNT(*) FROM website.carts where customer_id = " + customer_id + ";";
             MySqlCommand cmd2 = new MySqlCommand(queryCartNumberOfItems, mySqlConnection);
             MySqlDataReader reader1 = cmd2.ExecuteReader();
             if (reader1.HasRows)

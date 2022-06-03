@@ -25,29 +25,31 @@
                     </div>
                 </div><hr class="hr-teal"/>
                         <a ID="Continue"
-                            class="nav-link " href="index.aspx">Continue Shopping</a>
+                            class="nav-link " href="index.aspx">Continue Shopping</a><br />
                 <div class="row">
                     <div class="col">
-                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="1" GridLines="Vertical" 
+                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="LightPink" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="1" 
+                            GridLines="Vertical" 
                             ShowFooter="True"
                             Width="1200px"
                             OnRowDeleting="CartView_RowDeleting"
-                            CellSpacing="2">
+                            CellSpacing="3" >
 
-                            <AlternatingRowStyle BackColor="#DCDCDC" />
+                            <AlternatingRowStyle  BackColor="LightSkyBlue" />
                             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" 
-                                BorderColor=""
+                                BorderColor="#6600ff"
                                 BorderWidth="4px"
                                 Height="80px"
                                 HorizontalAlign="Center" />
                             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#EEEEEE" ForeColor="Black" 
+                            <RowStyle  BackColor="Pink"  ForeColor="Black" 
                                 Font-Bold="true"
+                                BorderColor="#6600ff"
+                                BorderWidth="4px"
                                 Width="500px"
                                 Height="100px"
                                 HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />
                             <SortedAscendingHeaderStyle BackColor="#0000A9" />
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
@@ -62,12 +64,15 @@
                                 <asp:BoundField DataField="prod_name" HeaderText="PRODUCT NAME" >
                                     <ItemStyle />
                                 </asp:BoundField>
+                                <asp:ImageField  DataImageUrlField="image" HeaderText="IMAGE" >
+                                    <ControlStyle Width="250px" Height="200px" 
+                                        CssClass="rounded-5 w3-margin" 
+                                        BorderWidth= "4px" 
+                                        BorderColor= "Crimson" />
+                                </asp:ImageField>   
                                 <asp:BoundField DataField="category" HeaderText="CATEGORY" >
                                     <ItemStyle />
                                 </asp:BoundField>
-                                <asp:ImageField  DataImageUrlField="image" HeaderText="IMAGE" >
-                                    <ControlStyle Width="300px" Height="180px" />
-                                </asp:ImageField>
                                 <asp:BoundField DataField="cost" HeaderText="COST" >
                                     <ItemStyle />
                                 </asp:BoundField>
@@ -83,7 +88,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col"><br />
                         <asp:Button ID="ClearCart" runat="server" 
                             CssClass="btn linkButton2 "
                             Text="Clear Cart"/>
