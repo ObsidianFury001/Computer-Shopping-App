@@ -128,23 +128,29 @@ namespace Project
             CartView.DataBind();
             string queryCartNumberOfItems = "SELECT COUNT(*) FROM website.carts where customer_id = " + customer_id + ";";
             //Response.Write(queryCartNumberOfItems);
-            DataTable CartItemsTable = new DataTable();
-            MySqlDataAdapter mySqlDataAdapter2 = new MySqlDataAdapter(queryCartNumberOfItems, mySqlConnection);
-            mySqlDataAdapter2.Fill(CartItemsTable);
             int NumberOfcartItems = GetNumberOfcartItems(customer_id);
             int GrandTotal = 0;
-            if (CartItemsTable.Rows.Count > 0)
+            if (NumberOfcartItems > 0)
             {
                 ClearCart.Enabled = true;
                 OrderButton.Enabled = true;
-                if (NumberOfcartItems == 1)
-                    cartHeader.Text = "You have " + NumberOfcartItems + " item in your Shopping Cart.";
-                else if (NumberOfcartItems > 1)
-                    cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
-
                 GrandTotal = 0;
                 if (NumberOfcartItems == 1)
+                {
                     GrandTotal = int.Parse(cartRecords.Rows[0]["amount"].ToString());
+                    cartHeader.Text = "You have " + NumberOfcartItems + " item in your Shopping Cart.";
+                }
+                else if (NumberOfcartItems > 1)
+                {
+                    int i = 0;
+                    while (i < NumberOfcartItems)
+                    {
+                        GrandTotal += int.Parse(cartRecords.Rows[0]["amount"].ToString());
+                        i += 1;
+                    }
+                    cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
+                }
+
                 cartFooter.Text = "Grand Total = " + GrandTotal + " AED";
                 cartFooter.Visible = false; 
             }
@@ -181,7 +187,7 @@ namespace Project
 
         protected void CartView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            
+
         }
         //protected void ClearCart_Click(object sender, EventArgs e)
         //{

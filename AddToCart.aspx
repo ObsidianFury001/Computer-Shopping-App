@@ -28,15 +28,13 @@
                             class="nav-link " href="index.aspx">Continue Shopping</a><br />
                 <div class="row">
                     <div class="col">
-                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="LightPink" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="1" 
-                            GridLines="Vertical" 
-                            ShowFooter="True"
+                        <asp:GridView ID="CartView" runat="server" AutoGenerateColumns="False" BackColor="LightPink" BorderColor="#999999" BorderStyle="None" BorderWidth="4px" CellPadding="1" 
+                            GridLines="Vertical"
                             Width="1200px"
                             OnRowDeleting="CartView_RowDeleting"
                             CellSpacing="3" >
 
                             <AlternatingRowStyle  BackColor="LightSkyBlue" />
-                            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" 
                                 BorderColor="#6600ff"
                                 BorderWidth="4px"
@@ -98,7 +96,8 @@
                     </div>
                 </div>              
                 <div class="row">
-                    <div class="col">
+                    <div class="col"></div>
+                    <div class="col" >
                         <asp:Label id="cartFooter" runat="server" CssClass="display-5" Text=""></asp:Label>
                     </div>
                 </div><hr class="hr-teal"/></center>
