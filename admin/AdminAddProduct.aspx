@@ -17,4 +17,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <center>Welcome Admin</center>
+      <div class="content"><br /><center>
+                <div class="containerCard w3-responsive">
+            <div class="form-row">
+                <h2 style="font-weight:700;">Add a Product</h2>
+            </div><br />
+
+            <hr class="hr-orange" /><br />
+            <div class="form-row"> 
+                <h4>Product Name</h4>
+            </div>
+            <div class="form-row">
+                <asp:TextBox ID="TextBox1" runat="server" cssclass="form-control" placeholder="First Name"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                    ControlToValidate="TextBox1"
+                    ErrorMessage="Product Name is required field."
+                    ForeColor="Red"
+                    Font-Size="Smaller" ></asp:RequiredFieldValidator>
+            </div>
+
+            <div class="row"> 
+                <h4>Category</h4>
+            </div>
+            <div class="form-row">
+                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Category"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                    ControlToValidate="TextBox2"
+                    ErrorMessage="Category is required field."
+                    ForeColor="Red"
+                    Font-Size="Smaller" ></asp:RequiredFieldValidator>
+            </div>
+        </div></center><br />
+        </div>
 </asp:Content>

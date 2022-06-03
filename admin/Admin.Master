@@ -61,8 +61,8 @@
                 <div class="w3-center">
                     <asp:Button ID="Button1" runat="server" Text="Sign Up" CssClass="btn linkButton" OnClick="Button1_Click"/>
                     <asp:Button ID="Button2" runat="server" Text="Sign In" CssClass="btn linkButton" OnClick="Button2_Click"/>
-                    <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton linkButton2" OnClick="Button3_Click"/>
-                    <asp:Button ID="Button4" runat="server" Text="Welcome" CssClass="btn linkButton linkButton2" />
+                    <asp:Button ID="Button3" runat="server" Text="Logout" CssClass="btn linkButton " OnClick="Button3_Click"/>
+                    <asp:Button ID="Button4" runat="server" Text="Welcome" CssClass="btn linkButton " />
                     <asp:Button ID="Button5" runat="server" Text="Admin Login" CssClass="btn linkButton" OnClick="Button5_Click"/>
                 </div>
             </div>
