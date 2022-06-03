@@ -74,7 +74,7 @@
                                 <asp:BoundField DataField="cost" HeaderText="COST" >
                                     <ItemStyle />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="quantity" HeaderText="PRICE" >
+                                <asp:BoundField DataField="quantity" HeaderText="QUANTITY" >
                                     <ItemStyle />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="amount" HeaderText="AMOUNT" >
@@ -89,7 +89,7 @@
                     <div class="col"><br />
                         <asp:Button ID="ClearCart" runat="server" 
                             CssClass="btn linkButton2 "
-                            Text="Clear Cart"/>
+                            Text="Clear Cart" OnClick="ClearCart_Click"/>
                         <asp:Button ID="OrderButton" runat="server" 
                             CssClass="btn linkButton2 "
                             Text="Place Order" OnClick="OrderButton_Click" />

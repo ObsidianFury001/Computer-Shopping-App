@@ -26,6 +26,8 @@ namespace Project
             {
                 HttpCookie authCookie = new HttpCookie("login");
                 authCookie = Request.Cookies["login"];
+                ClearCart.Enabled = true;
+                OrderButton.Enabled = true;
 
                 int product_id = int.Parse(Request.QueryString["prod_id"]);
                 int quantity = int.Parse(Request.QueryString["quantity"]);
@@ -83,7 +85,15 @@ namespace Project
                                     + stock + ","
                                     + quantity + ","
                                     + amount + ");";
+
+                                MySqlConnection mySqlConnection3 = new MySqlConnection(connectionString);
+                                mySqlConnection3.Open();
                                 //Response.Write("Inserting to Cart: " + queryAddToCart);
+                                stock = stock - quantity;
+                                String queryUpdate = "UPDATE website.products SET STOCK = " + stock.ToString() + " WHERE id = " + prod_id + ";";
+                                MySqlCommand update = new MySqlCommand(queryUpdate, mySqlConnection3);
+                                //Response.Write("<br>Update Query: "+queryUpdate+"<br>");
+                                update.ExecuteNonQuery();
                             }
                         }
                         reader1.Close();
@@ -94,6 +104,7 @@ namespace Project
                     if (val == 1)
                     {
                         Response.Write("<script>alert('Added to Cart!!!');</script>");
+                        Response.Redirect("index.aspx");
                     }
                     else
                         Response.Write("<script>alert('Error Occured!!!');</script>");
@@ -152,7 +163,7 @@ namespace Project
                 }
 
                 cartFooter.Text = "Grand Total = " + GrandTotal + " AED";
-                cartFooter.Visible = false; 
+                cartFooter.Visible = false;
             }
             else
             {
@@ -168,13 +179,14 @@ namespace Project
             mySqlConnection.Open();
             string queryCartNumberOfItems ="SELECT COUNT(*) FROM website.carts where customer_id = " + customer_id + ";";
             MySqlCommand cmd2 = new MySqlCommand(queryCartNumberOfItems, mySqlConnection);
-            MySqlDataReader reader1 = cmd2.ExecuteReader();
-            if (reader1.HasRows)
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            if (reader2.HasRows)
             {
-                while (reader1.Read())
+                while (reader2.Read())
                 {
-                    return int.Parse(reader1.GetValue(0).ToString());
+                    return int.Parse(reader2.GetValue(0).ToString());
                 }
+                reader2.Close();
             }
             mySqlConnection.Close();
             return 0;
@@ -189,28 +201,48 @@ namespace Project
         {
 
         }
-        //protected void ClearCart_Click(object sender, EventArgs e)
-        //{
-        //    String query = "DELETE FROM website.carts` WHERE (id = "\""++"\") and (email = \""+email+"\");";
 
-        //    mySqlConnection.Open();
-        //    //Response.Write(query);
-        //    MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
-        //    int val = mySqlCommand.ExecuteNonQuery();
+        protected void ClearCart_Click(object sender, EventArgs e)
+        {
+            MySqlConnection mySqlConnection2 = new MySqlConnection(connectionString);
+            mySqlConnection2.Open();
 
-        //    if (val == 1)
-        //    {
-        //        Response.Write("<script>alert('Sucessfully Signed Up!!!');</script>");
-        //        Response.Redirect("login.aspx");
-        //    }
-        //    else
-        //        Response.Write("<script>alert('Error Occured!!!');</script>");
-        //}
+            // Update Stock on clear
+            string queryCartNumberOfItems = "SELECT * FROM website.carts WHERE email = \"" + Request.Cookies["login"]["email"].ToString() + "\";";
+            MySqlCommand cmd2 = new MySqlCommand(queryCartNumberOfItems, mySqlConnection2);
+            MySqlDataReader reader2 = cmd2.ExecuteReader();
+            if (reader2.HasRows)
+            {
+                MySqlConnection mySqlConnection3 = new MySqlConnection(connectionString);
+                mySqlConnection3.Open();
+                while (reader2.Read())
+                {
+                    int prod_id = int.Parse(reader2["id"].ToString());
+                    int stock = int.Parse(reader2.GetValue(0).ToString());
+                    int quantity = int.Parse(reader2.GetValue(0).ToString());
+                    stock = stock + quantity;
+                    String queryUpdate = "UPDATE website.products SET STOCK = "+ stock.ToString() + " WHERE id = " + prod_id +";";
+                    MySqlCommand update = new MySqlCommand(queryUpdate, mySqlConnection3);
+                    //Response.Write("<br>Update Query: "+queryUpdate+"<br>");
+                    update.ExecuteNonQuery();
+                }
+                mySqlConnection3.Close();
+                reader2.Close();
+            }
+            String queryDelete = "DELETE FROM website.carts WHERE email = \"" + Request.Cookies["login"]["email"].ToString() + "\";";
 
-        //protected void CartView_DeleteItem(object sender, GridViewDeletedEventArgs e)
-        //{
-        //    //DataTable cartItems = new DataTable();
-        //    //cartItems = (DataTable)Session["cartItems"];
-        //}
+            //Response.Write(query);
+            MySqlCommand delete = new MySqlCommand(queryDelete, mySqlConnection2);
+            int val = delete.ExecuteNonQuery();
+            mySqlConnection.Close();
+            //Response.Write(val);
+            if (val == 1)
+            {
+                Response.Write("<script>alert('Cart Cleared!!!');</script>");
+                Response.Redirect("index.aspx");
+            }
+            else
+                Response.Write("<script>alert('Error Occured!!!');</script>");
+        }
     }
 }
