@@ -53,8 +53,15 @@ namespace Project
             HttpCookie authcookie = new HttpCookie("login");
             authcookie.Expires = DateTime.Now.AddDays(-1d);
             Response.Cookies.Add(authcookie);
-            Response.Redirect("index.aspx");
+
+            Page.ClientScript
+               .RegisterClientScriptBlock(
+                   this.GetType(),
+                   "signout",
+                   "swal('Success!', 'You have signed out.', 'success')",
+                   true);
             Session.Abandon();
+            Response.AddHeader("REFRESH", "3;URL='index.aspx'");
         }
 
         protected void Button5_Click(object sender, EventArgs e)

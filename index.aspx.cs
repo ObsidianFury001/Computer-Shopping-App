@@ -19,7 +19,7 @@ namespace Project
             var randomize = new Random();
             int i = randomize.Next(1,16);
             Image2.ImageUrl = string.Concat("images/banners/", i.ToString(), ".jpg");
-            if(!IsPostBack)
+            if (!IsPostBack)
                 GetData();
         }
         protected void Timer1_Tick(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace Project
             String filterQuery = "";
             String selectedCategory = SearchBox.Text;
             filterQuery = "SELECT * FROM products WHERE (prod_name like \"%" + selectedCategory + "%\") OR (category like \"%" + selectedCategory + "%\");";
-            Response.Write("<script>alert('"+filterQuery+"')");
+            //Response.Write("<script>alert('"+filterQuery+"')");
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();
             DataTable records = new DataTable();
@@ -140,10 +140,10 @@ namespace Project
             Label ProductinCartID = (Label)e.Item.FindControl("ProductID");
             Label ProductinCartStock = (Label)e.Item.FindControl("Stock");
             Button CartButton = (Button)e.Item.FindControl("AddToCartButton");
-             
+
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();
-            
+
             // Selecting product using ID
             String query = "SELECT * FROM products where id = " + ProductinCartID.Text + ";";
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(query, mySqlConnection);

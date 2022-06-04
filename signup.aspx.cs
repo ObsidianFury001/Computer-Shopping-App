@@ -54,8 +54,13 @@ namespace Project
 
                     if (val == 1)
                     {
-                        Response.Write("<script>alert('Sucessfully Signed Up!!!');</script>");
-                        Response.Redirect("login.aspx");
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "signup",
+                               "swal('Account created!', 'Successfully Signed Up.', 'success')",
+                               true);
+                        Response.AddHeader("REFRESH", "3;URL='login.aspx'");
                     }
                     else
                         Response.Write("<script>alert('Error Occured!!!');</script>");

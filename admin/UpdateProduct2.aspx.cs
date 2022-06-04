@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Project.admin
 {
-    public partial class AdminHome : System.Web.UI.Page
+    public partial class UpdateProduct : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
 
+        }
     }
 }

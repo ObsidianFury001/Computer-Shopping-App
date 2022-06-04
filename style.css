@@ -129,7 +129,7 @@ body {
     width: 600px;
 }
 .nav-item {
-    padding: 1.5%;
+    padding: 1%;
 }
 
 .nav-links {
@@ -258,6 +258,9 @@ body {
 /*    background-color: #161743;*/
     background-color: #080438;
     border-radius: 1rem;
+}
+.adminCard {
+    width: 80%;
 }
 
 .cardCart {

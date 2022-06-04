@@ -20,6 +20,7 @@ namespace Project
             mySqlConnection.Open();
             if (Request.Cookies["login"] == null)
                 Response.Redirect("index.aspx");
+
             BindCart(int.Parse(Request.Cookies["login"]["id"]));
 
             if (Request.QueryString["prod_id"] != null && Request.QueryString["quantity"] != null)
@@ -33,11 +34,10 @@ namespace Project
                 int customer_id = int.Parse(authCookie["id"]);
                 string email = authCookie["email"].ToString();
                 string queryAddToCart = "";
-                string querySelectProducts = "";
-                string queryCartProducts = "";
 
                 try
                 {
+                    string querySelectProducts = "";
                     //Response.Write(product_id.ToString() + quantity.ToString());
                     querySelectProducts = "SELECT * FROM website.products where id= "
                         + product_id + ";";
@@ -63,7 +63,13 @@ namespace Project
                             //Response.Write("Product Values for product ID" + "," + prod_id + "," + prod_name + category + "," + desc + "," + image + "," + stock + "," + cost);
                             if(quantity > stock)
                             {
-                                Response.Write("<script>alert('Stock Not available!!');</script>");
+                                ClientScript
+                                  .RegisterClientScriptBlock(
+                                      this.GetType(),
+                                      "i",
+                                      "swal('Product stock not available.!','Please try again later.', 'warning')",
+                                      true);
+                                Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
                             }
                             else
                             {
@@ -91,8 +97,8 @@ namespace Project
                                 stock = stock - quantity;
                                 string queryUpdate = "UPDATE website.products SET STOCK = " + stock.ToString() + " WHERE id = " + prod_id + ";";
                                 MySqlCommand update = new MySqlCommand(queryUpdate, mySqlConnection3);
-                                //Response.Write("<br>Update Query: "+queryUpdate+"<br>");
-                                update.ExecuteNonQuery();
+                                ////Response.Write("<br>Update Query: "+queryUpdate+"<br>");
+                                int updatecheck = update.ExecuteNonQuery();
                             }
                         }
                         reader1.Close();
@@ -102,13 +108,25 @@ namespace Project
                     int val = mySqlCommand2.ExecuteNonQuery();
                     if (val == 1)
                     {
-                        Response.Write("<script>alert('Added to Cart!!!');</script>");
-                        Response.Redirect("index.aspx");
+                        Page.ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Success!', 'Product added to cart.', 'success')",
+                               true);
+
+                        Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
                     }
                     else
-                        Response.Write("<script>alert('Error Occured!!!');</script>");
+                        Page.ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Error Occurred','Something went wrong.', 'danger')",
+                               true);
 
 
+                    string queryCartProducts = "";
                     DataTable cartRecords = new DataTable();
                     queryCartProducts = "SELECT * FROM website.carts where customer_id = " + customer_id + ";";
                     MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(queryCartProducts, mySqlConnection);
@@ -141,22 +159,23 @@ namespace Project
             //Response.Write(queryCartNumberOfItems);
             int NumberOfcartItems = GetNumberOfcartItems(customer_id);
             int GrandTotal = 0;
-            if (NumberOfcartItems > 0)
+            if (cartRecords.Rows.Count > 0)
             {
                 ClearCart.Enabled = true;
                 OrderButton.Enabled = true;
                 GrandTotal = 0;
-                if (NumberOfcartItems == 1)
+                if (cartRecords.Rows.Count == 1)
                 {
                     GrandTotal = int.Parse(cartRecords.Rows[0]["amount"].ToString());
                     cartHeader.Text = "You have " + NumberOfcartItems + " item in your Shopping Cart.";
                 }
-                else if (NumberOfcartItems > 1)
+                else if (cartRecords.Rows.Count > 1)
                 {
                     int i = 0;
-                    while (i < NumberOfcartItems)
+                    while (i < cartRecords.Rows.Count)
                     {
-                        GrandTotal += int.Parse(cartRecords.Rows[0]["amount"].ToString());
+                        GrandTotal += int.Parse(cartRecords.Rows[i]["amount"].ToString());
+                        Response.Write("GrandTotal = "+GrandTotal+"\n");
                         i += 1;
                     }
                     cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";
@@ -214,19 +233,19 @@ namespace Project
                 mySqlConnection3.Open();
                 while (reader2.Read())
                 {
-                    int prod_id = int.Parse(reader2["id"].ToString());
+                    int prod_id = int.Parse(reader2["prod_id"].ToString());
                     int stock = int.Parse(reader2["stock"].ToString());
                     int quantity = int.Parse(reader2["quantity"].ToString());
-                    stock = stock + quantity;
-                    string queryUpdate = "UPDATE website.products SET STOCK = " + stock.ToString() + " WHERE id = " + prod_id + ";";
+                    string queryUpdate = "UPDATE website.products SET STOCK = STOCK + " + quantity  +" WHERE id = " + prod_id + ";";
                     MySqlCommand update = new MySqlCommand(queryUpdate, mySqlConnection3);
-                    //Response.Write("<br>Update Query: "+queryUpdate+"<br>");
+                    //Response.Write(queryUpdate);
                     update.ExecuteNonQuery();
                 }
                 mySqlConnection3.Close();
                 reader2.Close();
             }
             mySqlConnection2.Close();
+            BindCart(int.Parse(Request.Cookies["login"]["id"]));
             int order_id = int.Parse(CartView.Rows[e.RowIndex].Cells[0].Text);
             //Response.Write(order_id.ToString());
             MySqlConnection mySqlConnection4 = new MySqlConnection(connectionString);
@@ -235,7 +254,7 @@ namespace Project
             MySqlCommand deleteProduct = new MySqlCommand(queryCartProducts, mySqlConnection4);
             int val = deleteProduct.ExecuteNonQuery();
             //Response.Write("Value = "+ val + "Record with id = "+ order_id + " Deleted.");
-            Response.Write(queryCartProducts);
+            //Response.Write("<br>"+queryCartProducts);
             BindCart(int.Parse(Request.Cookies["login"]["id"]));
             mySqlConnection4.Close();
         }
@@ -279,11 +298,24 @@ namespace Project
             //Response.Write("DELETE VALUE = "+ val.ToString());
             if (val == 1)
             {
-                Response.Write("<script>alert('Cart Cleared!!!');</script>");
-                Response.Redirect("index.aspx");
+                ClientScript
+                   .RegisterClientScriptBlock(
+                       this.GetType(),
+                       "k",
+                       "swal('Success!', 'Item removed from cart.', 'success')",
+                       true);
+                //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
             }
             else
-                Response.Write("<script>alert('Error Occured!!!');</script>");
+            {
+                ClientScript
+                   .RegisterClientScriptBlock(
+                       this.GetType(),
+                       "k",
+                       "swal('Success!','All products cleared from cart.', 'success')",
+                       true);
+                //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
+            }
         }
     }
 }

@@ -1,16 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
 
 namespace Project.admin
 {
-	public partial class AddProduct : System.Web.UI.Page
-	{
+    public partial class AddProduct : System.Web.UI.Page
+    {
         const String connectionString = "server=localhost;user id=root;password=root;database=website";
         //const String connectionString = "Data Source=GLACTUS;Initial Catalog=website;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
@@ -19,29 +19,33 @@ namespace Project.admin
                 Response.Redirect("index.aspx");
         }
 
-        protected void AddProductButton_Click(object sender, EventArgs e)
+        protected void AdminCommandsButton_Click(object sender, EventArgs e)
         {
-
             if (String.IsNullOrEmpty(TextBox1.Text.Trim()) ||
                 String.IsNullOrEmpty(TextBox2.Text.Trim()) ||
                 String.IsNullOrEmpty(TextBox3.Text.Trim()) ||
                 String.IsNullOrEmpty(TextBox4.Text.Trim()) ||
                 String.IsNullOrEmpty(TextBox5.Text.Trim()) ||
                        !FileUpload1.HasFile)
-                Response.Write("<script>alert('Please enter all product details...');</script>"); 
+                ClientScript
+                    .RegisterClientScriptBlock(
+                        this.GetType(),
+                        "k",
+                        "swal('Error!', 'Please enter all the product details.', 'warning')",
+                        true);
             else
-                AddNewProduct();            
+                AddNewProduct();
         }
         protected void AddNewProduct()
         {
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             try
             {
-                String query = "INSERT INTO website.products(prod_name, category, description, image, stock, cost) VALUES( \""
-                       + TextBox1.Text.Trim() + "\",\""
-                       + TextBox2.Text.ToUpper().Trim() + "\",\""
-                       + TextBox3.Text + "\",\""
-                       + "images/products/" + FileUpload1.FileName.ToString() + "\","
+                String query = "INSERT INTO website.products(prod_name, category, description, image, stock, cost) VALUES('"
+                       + TextBox1.Text.Trim() + "','"
+                       + TextBox2.Text.ToUpper().Trim() + "','"
+                       + TextBox3.Text + "','"
+                       + "images/products/" + FileUpload1.FileName.ToString() + "',"
                        + TextBox4.Text.Trim() + ","
                        + TextBox5.Text.Trim() + ");";
 
@@ -53,13 +57,22 @@ namespace Project.admin
                 if (val == 1)
                 {
                     string fileName = Path.Combine(Server.MapPath("/images/products"), FileUpload1.FileName);
-                    Response.Write("<script>alert('Sucessfully Added your Product!!!');</script>");
+                    ClientScript
+                        .RegisterClientScriptBlock(
+                            this.GetType(),
+                            "k",
+                            "swal('Action Completed!', 'Successfully added your product.', 'success')",
+                            true);
                     FileUpload1.SaveAs(fileName);
                 }
                 else
-                    Response.Write("<script>alert('Error Occured!!!');</script>");
+                    ClientScript
+                        .RegisterClientScriptBlock(
+                            this.GetType(),
+                            "k",
+                            "swal('Error Occurred!', 'Something went wrong...', 'warning')",
+                            true);
 
-                Response.Write("After IF");
                 TextBox1.Text = "";
                 TextBox2.Text = "";
                 TextBox3.Text = "";
@@ -69,7 +82,12 @@ namespace Project.admin
             }
             catch (Exception Ex)
             {
-                Response.Write("<script>alert('Fatal Error Occured...'" + Ex.Message + "');</script>");
+                ClientScript
+                    .RegisterClientScriptBlock(
+                        this.GetType(),
+                        "k",
+                        "swal('Fatal Error!', 'Something went wrong...', 'danger')",
+                        true);
             }
             finally
             {

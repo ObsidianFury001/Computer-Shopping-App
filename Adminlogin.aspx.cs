@@ -31,11 +31,29 @@ namespace Project.admin
                 String password = TextBox2.Text.Trim();
                 if (String.IsNullOrEmpty(email) &&
                     String.IsNullOrEmpty(password))
-                    Response.Write("<script>alert('Please enter both username and password credentials.');</script>");
+                    ClientScript
+                       .RegisterClientScriptBlock(
+                           this.GetType(),
+                           "k",
+                           "swal('Warning!', 'Please enter both user name and Password.', 'danger')",
+                           true);
+
                 else if (String.IsNullOrEmpty(email))
-                    Response.Write("<script>alert('Please enter the username.');</script>");
+                    ClientScript
+                       .RegisterClientScriptBlock(
+                           this.GetType(),
+                           "k",
+                           "swal('Warning!', 'Please enter the username.', 'warning')",
+                           true);
+
                 else if (String.IsNullOrEmpty(password))
-                    Response.Write("<script>alert('Please enter the password.');</script>");
+                    ClientScript
+                       .RegisterClientScriptBlock(
+                           this.GetType(),
+                           "k",
+                           "swal('Warning!', ''Please enter the password.'', 'warning')",
+                           true);
+
                 else
                 {
                     String query = "SELECT * FROM website.admin where username = \"" + email + "\" && password = \"" + password + "\";";
@@ -56,7 +74,6 @@ namespace Project.admin
                         //MessageBox.Text = "Sucessfully Signed In!!!";
                         while (reader.Read())
                         {
-                            Response.Write("<script>alert('Successfully Signed In!');</script>");
 
                             //Response.Write("<script>alert('" +
                             //    "Successfully Signed In! Welcome " +
@@ -78,18 +95,35 @@ namespace Project.admin
                             Response.Cookies.Add(adminCookie);
                         }
 
-                        Response.Redirect("admin/AdminHome.aspx");
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Welcome', 'Successfully Logged in','success')",
+                               true);
+                        Response.AddHeader("REFRESH", "3;URL='admin/AdminHome.aspx'");
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }
                     else
-                        Response.Write("<script>alert('Invalid Credentials!!!');</script>");
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Access Denied!, 'Invalid Credentials.', 'success')",
+                               true);
 
                 }
             }
             catch (Exception Ex)
             {
-                Response.Write("<script>alert(Fatal Error Occured'" + Ex.Message + "');</script>");
+                
+                ClientScript
+                   .RegisterClientScriptBlock(
+                       this.GetType(),
+                       "k",
+                       "swal('Fatal error occurred.'+ex.message.ToString(), 'success')",
+                       true);
             }
             finally
             {

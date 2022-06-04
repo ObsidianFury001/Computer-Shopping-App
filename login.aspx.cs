@@ -80,22 +80,37 @@ namespace Project
                             authCookie["role"] = reader.GetValue(7).ToString();
 
                             authCookie.Expires = DateTime.Now.AddDays(1d);
-                            Response.Write(authCookie.ToString());
+                            //Response.Write(authCookie.ToString());
                             Response.Cookies.Add(authCookie);
                         }
 
-                        Response.Redirect("index.aspx");
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Authentication Successful!', 'Successfully logged in.', 'success')",
+                               true);
+                        Response.AddHeader("REFRESH", "3;URL='/index.aspx'");
                         TextBox1.Text = "";
                         TextBox2.Text = "";
                     }
                     else
-                        Response.Write("<script>alert('Invalid Credentials!!!');</script>");
-
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "k",
+                               "swal('Error!', 'Invalid Credentials.', 'error')",
+                               true);
                 }
             }
             catch (Exception Ex)
             {
-                Response.Write("<script>alert(Fatal Error Occured'" + Ex.Message + "');</script>");
+                ClientScript
+                   .RegisterClientScriptBlock(
+                       this.GetType(),
+                       "k",
+                       "swal('Fatal error occurred!', 'danger')",
+                       true);
             }
             finally
             {
