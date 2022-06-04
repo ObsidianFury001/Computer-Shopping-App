@@ -109,7 +109,7 @@ namespace Project
                    .RegisterClientScriptBlock(
                        this.GetType(),
                        "k",
-                       "swal('Fatal error occurred!', 'danger')",
+                       "swal('Fatal error occurred!', 'Something went wrong.' 'error')",
                        true);
             }
             finally

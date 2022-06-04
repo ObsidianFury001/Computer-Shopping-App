@@ -26,7 +26,7 @@ namespace Project.admin
                    .RegisterClientScriptBlock(
                        this.GetType(),
                        "k",
-                       "swal('Unauthorized Access!', 'Admins only...', 'danger')",
+                       "swal('Unauthorized Access!', 'Admins only...', 'error')",
                        true);
                 Response.AddHeader("REFRESH", "3;URL='../index.aspx'");
             }

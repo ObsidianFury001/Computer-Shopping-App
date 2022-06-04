@@ -86,7 +86,7 @@ namespace Project.admin
                     .RegisterClientScriptBlock(
                         this.GetType(),
                         "k",
-                        "swal('Fatal Error!', 'Something went wrong...', 'danger')",
+                        "swal('Fatal Error!', 'Something went wrong...', 'error')",
                         true);
             }
             finally

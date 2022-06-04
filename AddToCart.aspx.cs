@@ -122,7 +122,7 @@ namespace Project
                            .RegisterClientScriptBlock(
                                this.GetType(),
                                "k",
-                               "swal('Error Occurred','Something went wrong.', 'danger')",
+                               "swal('Error Occurred','Something went wrong.', 'error')",
                                true);
 
 
@@ -175,7 +175,6 @@ namespace Project
                     while (i < cartRecords.Rows.Count)
                     {
                         GrandTotal += int.Parse(cartRecords.Rows[i]["amount"].ToString());
-                        Response.Write("GrandTotal = "+GrandTotal+"\n");
                         i += 1;
                     }
                     cartHeader.Text = "You have " + NumberOfcartItems + " items in your Shopping Cart.";

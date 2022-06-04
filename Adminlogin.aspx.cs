@@ -35,7 +35,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', 'Please enter both user name and Password.', 'danger')",
+                           "swal('Warning!', 'Please enter both user name and Password.', 'error')",
                            true);
 
                 else if (String.IsNullOrEmpty(email))
@@ -43,7 +43,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', 'Please enter the username.', 'warning')",
+                           "swal('Warning!', 'Please enter the username.', 'error')",
                            true);
 
                 else if (String.IsNullOrEmpty(password))
@@ -51,7 +51,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', ''Please enter the password.'', 'warning')",
+                           "swal('Warning!', ''Please enter the password.'', 'error')",
                            true);
 
                 else
