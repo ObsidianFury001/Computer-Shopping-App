@@ -26,9 +26,9 @@
                 <div class="containerCard w3-responsive">
             <div class="form-row">
                 <h2 style="font-weight:700;">Sign Up</h2>
-            </div><br />
+            </div>
                     
-            <hr class="hr-orange" /><br />
+            <hr class="hr-red" /><br />
             <div class="form-row"> 
                 <h4>First Name</h4>
             </div>

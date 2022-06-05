@@ -26,8 +26,9 @@
             <div class="containerCard">
             <div class="form-row">
                 <h2 style="font-weight:700;">Admin Login</h2>
-            </div><br />
+            </div>
             
+            <hr class="hr-red" /><br />
             <div class="form-row">
                 <h4>Username</h4>
             </div>
@@ -51,12 +52,12 @@
                     ForeColor="Red" ></asp:RequiredFieldValidator>
             </div>
             
-            <div class="row">
+<%--            <div class="row">
                 <div class="form-check" >
-                        <asp:CheckBox ID="showPassword" runat="server" class="checkbox" type="checkbox" OnCheckedChanged="showPassword_CheckedChanged" />
-                        <label class="form-check-label" for="showPassword">Show Password</label>
+                        <asp:CheckBox ID="showPassword" runat="server" class="checkbox" type="checkbox" />
+                        <label class="form-check-label" for="showPassword">Show Password</label>>
                 </div>
-            </div>
+            </div>--%>
             <div class="row w3-margin"> 
                 <asp:Button ID="loginButton" runat="server" Text="Login" CssClass="btn primary btn-block btn-lg" OnClick="loginButton_Click"/>
             </div>

@@ -116,8 +116,7 @@ namespace Project.admin
                 }
             }
             catch (Exception Ex)
-            {
-                
+            {                
                 ClientScript
                    .RegisterClientScriptBlock(
                        this.GetType(),
@@ -129,17 +128,6 @@ namespace Project.admin
             {
                 mySqlConnection.Close();
             }
-        }
-
-        protected void showPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (showPassword.Checked)
-            {
-                TextBox2.TextMode = TextBoxMode.SingleLine;
-                var value = TextBox2.TextMode.ToString();
-                Response.Write("<script>Console.Write(value);</script>");
-            }
-                
         }
     }
 }

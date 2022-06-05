@@ -27,8 +27,9 @@
             <div class="containerCard">
             <div class="form-row">
                 <h2 style="font-weight:700;">Login</h2>
-            </div><br />
+            </div>
             
+            <hr class="hr-purple" /><br />
             <div class="form-row">
                 <h4>Email</h4>
             </div>
@@ -56,12 +57,12 @@
                 <asp:Button ID="loginButton" runat="server" Text="Login" CssClass="btn primary btn-block btn-lg" OnClick="loginButton_Click"/>
             </div>
             
-            <div class="row">
+<%--            <div class="row">
                 <div class="form-check" >
                         <asp:CheckBox ID="showPassword" runat="server" class="checkbox" type="checkbox" />
                         <label class="form-check-label" for="showPassword">Show Password</label>
                 </div>
-            </div>
+            </div>--%>
             <center><h5 ><a href="signup.aspx" class="hint" >New User? Click here to Sign Up</a><asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                 </h5></center>
         </div></center><br />
