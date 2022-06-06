@@ -117,13 +117,5 @@ namespace Project
                 mySqlConnection.Close();
             }
         }
-
-        protected void showPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (showPassword.Checked)
-                Response.Write("Checked");
-            else
-                TextBox2.TextMode = TextBoxMode.SingleLine; //For normal Plain text
-        }
     }
 }

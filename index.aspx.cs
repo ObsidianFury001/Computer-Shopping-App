@@ -93,9 +93,8 @@ namespace Project
         
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            String filterQuery = "";
             String selectedCategory = SearchBox.Text;
-            filterQuery = "SELECT * FROM products WHERE (prod_name like \"%" + selectedCategory + "%\") OR (category like \"%" + selectedCategory + "%\");";
+            String filterQuery = "SELECT * FROM products WHERE (prod_name like \"%" + selectedCategory + "%\") OR (category like \"%" + selectedCategory + "%\");";
             //Response.Write("<script>alert('"+filterQuery+"')");
             MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
             mySqlConnection.Open();

@@ -111,10 +111,9 @@
     <Content Include="About.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="admin\AddProduct.aspx" />
-    <Content Include="admin\AdminCommands.aspx" />
     <Content Include="admin\AdminHome.aspx" />
     <Content Include="Adminlogin.aspx" />
-    <Content Include="admin\UpdateProduct2.aspx" />
+    <Content Include="admin\UpdateProduct.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -226,13 +225,6 @@
     <Compile Include="admin\AddProduct.aspx.designer.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\AdminCommands.aspx.cs">
-      <DependentUpon>AdminCommands.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\AdminCommands.aspx.designer.cs">
-      <DependentUpon>AdminCommands.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,12 +246,12 @@
     <Compile Include="Adminlogin.aspx.designer.cs">
       <DependentUpon>Adminlogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\UpdateProduct2.aspx.cs">
-      <DependentUpon>UpdateProduct2.aspx</DependentUpon>
+    <Compile Include="admin\UpdateProduct.aspx.cs">
+      <DependentUpon>UpdateProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\UpdateProduct2.aspx.designer.cs">
-      <DependentUpon>UpdateProduct2.aspx</DependentUpon>
+    <Compile Include="admin\UpdateProduct.aspx.designer.cs">
+      <DependentUpon>UpdateProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

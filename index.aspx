@@ -60,8 +60,7 @@
                         <tr>
                             <td class="w3-margin w3-padding"><asp:DropDownList ID="searchFilter" runat="server"
                                     AutoPostBack="True"
-                                    CssClass="btn btn-primary dropdown rounded-2"
-                                    OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
+                                    CssClass="btn btn-primary dropdown rounded-2"          OnSelectedIndexChanged="searchFilter_SelectedIndexChanged" 
                                     ToolTip="Search using Brand, Product name." 
                                     Width="180px"
                                     Height="48px">
@@ -77,7 +76,7 @@
                             <td class="w3-margin w3-padding">
                                 <asp:Button ID="SearchButton" runat="server" Text="Search" CssClass="btn linkButton"
                                     style="width: clamp(10%, 20vw, 100%);
-                                            height:48px;" OnClick="SearchButton_Click"/>                  
+                                            height:48px;" OnClick="SearchButton_Click"/>
                             </td>
                         </tr>
                     </table>

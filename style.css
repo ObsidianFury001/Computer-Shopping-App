@@ -148,8 +148,8 @@ body {
 .nav-links2 {
     font-size: clamp(50%, 16px, 130%);
     color: white;
-    width: clamp(4em, 7em, 12em);
-    height: clamp(4em, 8vh, 11em);
+    width: clamp(4em, auto, 12em);
+    height: clamp(4em, 50px, 11em);
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.25s ease-in-out 0s;
