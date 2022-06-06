@@ -43,7 +43,7 @@
                 <center>    
                     <ul class="navbar-nav justify-content-evenly align-items-center w3-padding">
                     <li class="nav-item">
-                        <a id="link1" class="nav-link nav-links" href="AddProduct.aspx">Add Product</a>
+                        <a id="link1" class="nav-link nav-links" href="AddProduct.aspx">&nbsp;&nbsp;Add Product&nbsp;</a>
                     </li>
                     <li class="nav-item">
                         <a id="link2" class="nav-link nav-links" href="UpdateProduct.aspx">Update Product</a>
