@@ -17,7 +17,7 @@ namespace Project.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["login"] != null)
-                Response.Redirect("index.aspx"); 
+                Response.Redirect("../index.aspx"); 
             GetData();
         }
         protected void AdminCommandsButton_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Project.admin
                     "prod_name = \'" + TextBox1.Text.Trim()
                     + "\', category = \'" + TextBox2.Text.ToUpper().Trim() 
                     + "\', description = \'" + TextBox3.Text
-                    + "\', image = \'" + "images/products/" + FileUpload1.FileName.ToString()
+                    + "\', image = \'" + "~/images/products/" + FileUpload1.FileName.ToString()
                     + "\', stock = " + TextBox4.Text 
                     + ", cost = " + TextBox5.Text.Trim() + " where id = "
                     + ProductIdSelector.SelectedValue.ToString() + ";";
@@ -75,7 +75,7 @@ namespace Project.admin
                 Response.Write("Update command Val = " + val);
                 if (val == 1)
                 {
-                    string fileName = Path.Combine(Server.MapPath("/images/products"), FileUpload1.FileName);
+                    string fileName = Path.Combine(Server.MapPath("~/images/products"), FileUpload1.FileName);
                     FileUpload1.SaveAs(fileName);
                     ClientScript
                         .RegisterClientScriptBlock(
@@ -83,6 +83,7 @@ namespace Project.admin
                             "k",
                             "swal('Action Completed!', 'Successfully updated your product.', 'success')",
                             true);
+                    Response.AddHeader("REFRESH", "3;URL='UpdateProduct.aspx'");
                 }
                 else
                     ClientScript
@@ -98,7 +99,7 @@ namespace Project.admin
                     .RegisterClientScriptBlock(
                         this.GetType(),
                         "k",
-                        "swal('Fatal Error!', Ex.message.t'Something went wrong...', 'error')",
+                        "swal('Fatal Error!', Ex.message().ToString()+'Something went wrong...', 'error')",
                         true);
             }
             finally

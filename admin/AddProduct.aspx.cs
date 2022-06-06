@@ -16,7 +16,7 @@ namespace Project.admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["login"] != null)
-                Response.Redirect("index.aspx");
+                Response.Redirect("../index.aspx");
         }
 
         protected void AdminCommandsButton_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Project.admin
                        + TextBox1.Text.Trim() + "','"
                        + TextBox2.Text.ToUpper().Trim() + "','"
                        + TextBox3.Text + "','"
-                       + "images/products/" + FileUpload1.FileName.ToString() + "',"
+                       + "~/images/products/" + FileUpload1.FileName.ToString() + "',"
                        + TextBox4.Text.Trim() + ","
                        + TextBox5.Text.Trim() + ");";
 
@@ -56,7 +56,7 @@ namespace Project.admin
                 int val = mySqlCommand.ExecuteNonQuery();
                 if (val == 1)
                 {
-                    string fileName = Path.Combine(Server.MapPath("/images/products"), FileUpload1.FileName);
+                    string fileName = Path.Combine(Server.MapPath("~/images/products"), FileUpload1.FileName);
                     ClientScript
                         .RegisterClientScriptBlock(
                             this.GetType(),
@@ -64,6 +64,7 @@ namespace Project.admin
                             "swal('Action Completed!', 'Successfully added your product.', 'success')",
                             true);
                     FileUpload1.SaveAs(fileName);
+                    Response.AddHeader("REFRESH", "3;URL='AddProduct.aspx'");
                 }
                 else
                     ClientScript

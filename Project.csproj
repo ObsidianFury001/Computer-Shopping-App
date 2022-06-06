@@ -113,6 +113,7 @@
     <Content Include="admin\AddProduct.aspx" />
     <Content Include="admin\AdminHome.aspx" />
     <Content Include="Adminlogin.aspx" />
+    <Content Include="admin\DeleteProduct.aspx" />
     <Content Include="admin\UpdateProduct.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -245,6 +246,13 @@
     </Compile>
     <Compile Include="Adminlogin.aspx.designer.cs">
       <DependentUpon>Adminlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\DeleteProduct.aspx.cs">
+      <DependentUpon>DeleteProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\DeleteProduct.aspx.designer.cs">
+      <DependentUpon>DeleteProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\UpdateProduct.aspx.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>

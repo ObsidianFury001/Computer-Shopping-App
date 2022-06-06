@@ -46,7 +46,7 @@
                 <h4>Password</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Password" ></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" cssclass="form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                     ControlToValidate="TextBox2"
                     ErrorMessage="Password is required."

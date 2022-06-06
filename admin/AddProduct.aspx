@@ -114,7 +114,10 @@
                     </div>
                 </div>
                     <div class="col w3-margin ">
-                            <asp:Button ID="AdminCommandsButton" runat="server" Text="Add Product" CssClass="btn primary btn-lg linkButton" OnClick="AdminCommandsButton_Click" />
+                            <asp:Button ID="AdminCommandsButton" runat="server"
+                                Text="Add Product"
+                                CssClass="btn primary btn-lg linkButton"  
+                                OnClick="AdminCommandsButton_Click" />
                     </div>            
             </div></center>
           </div>

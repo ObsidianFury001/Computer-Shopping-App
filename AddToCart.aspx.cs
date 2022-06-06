@@ -303,7 +303,7 @@ namespace Project
                        "k",
                        "swal('Success!', 'Item removed from cart.', 'success')",
                        true);
-                //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
+                Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
             }
             else
             {
@@ -313,7 +313,7 @@ namespace Project
                        "k",
                        "swal('Success!','All products cleared from cart.', 'success')",
                        true);
-                //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
+                Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
             }
         }
     }
