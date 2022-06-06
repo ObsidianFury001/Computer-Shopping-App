@@ -93,7 +93,8 @@
                 <h4>Password</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox5" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
+                <asp:TextBox ID="TextBox5" runat="server" cssclass="form-control" placeholder="Password"
+                    TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server"
                     ControlToValidate="TextBox5"
                     ErrorMessage="Password is required field."
@@ -105,7 +106,8 @@
                 <h4>Confirm Password</h4>
             </div>
             <div class="form-row">
-                <asp:TextBox ID="TextBox5Confirm" runat="server" cssclass="form-control" placeholder="Password"></asp:TextBox>
+                <asp:TextBox ID="TextBox5Confirm" runat="server" cssclass="form-control" placeholder="Password"
+                    TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator id="RequiredFieldValidator5Confirm" runat="server"
                     ControlToValidate="TextBox5Confirm"
                     ErrorMessage="Password is required field."

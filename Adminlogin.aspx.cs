@@ -35,7 +35,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', 'Please enter both user name and Password.', 'error')",
+                           "swal('Warning!', 'Please enter both user name and Password.', 'warning')",
                            true);
 
                 else if (String.IsNullOrEmpty(email))
@@ -43,7 +43,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', 'Please enter the username.', 'error')",
+                           "swal('Warning!', 'Please enter the username.', 'warning')",
                            true);
 
                 else if (String.IsNullOrEmpty(password))
@@ -51,7 +51,7 @@ namespace Project.admin
                        .RegisterClientScriptBlock(
                            this.GetType(),
                            "k",
-                           "swal('Warning!', ''Please enter the password.'', 'error')",
+                           "swal('Warning!', ''Please enter the password.'', 'warning')",
                            true);
 
                 else
@@ -99,7 +99,7 @@ namespace Project.admin
                            .RegisterClientScriptBlock(
                                this.GetType(),
                                "k",
-                               "swal('Welcome', 'Successfully Logged in','success')",
+                               "swal('Welcome Admin', 'Successfully Logged in','success')",
                                true);
                         Response.AddHeader("REFRESH", "3;URL='admin/AdminHome.aspx'");
                         TextBox1.Text = "";
