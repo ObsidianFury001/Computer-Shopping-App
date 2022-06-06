@@ -63,7 +63,12 @@ namespace Project
                         Response.AddHeader("REFRESH", "3;URL='login.aspx'");
                     }
                     else
-                        Response.Write("<script>alert('Error Occured!!!');</script>");
+                        ClientScript
+                           .RegisterClientScriptBlock(
+                               this.GetType(),
+                               "signup",
+                               "swal('Error Occurred!', 'Something went wrong.', 'error')",
+                               true);
 
                     TextBox1.Text = "";
                     TextBox2.Text = "";
@@ -74,7 +79,12 @@ namespace Project
             }
             catch (Exception Ex)
             {
-                Response.Write("<script>alert('Fatal Error Occured...'" + Ex.Message + "');</script>");
+                ClientScript
+                   .RegisterClientScriptBlock(
+                       this.GetType(),
+                       "signup",
+                       "swal('Fatal Error Occurred!', 'Something went wrong.', 'error'",
+                       true);
             }
             finally
             {

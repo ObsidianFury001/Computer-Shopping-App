@@ -87,14 +87,14 @@
                         </asp:GridView>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col"><br />
+                <%--<div class="row">--%>
+<%--                    <div class="col"><br />
                         <asp:Button ID="ClearCart" runat="server" 
                             CssClass="btn primary btn-lg linkButton"
                             Width="230px"
                             Text="Delete All Products" OnClick="ClearCart_Click"/>
                     </div>
-                </div>              
+                </div>              --%>
                 <div class="row">
                     <div class="col"></div>
                     <div class="col" >

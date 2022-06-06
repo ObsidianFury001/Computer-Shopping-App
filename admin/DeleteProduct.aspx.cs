@@ -32,12 +32,12 @@ namespace Project.admin
             //Response.Write(queryCartNumberOfItems
             if (cartRecords.Rows.Count >= 1)
             {
-                ClearCart.Enabled = true;
+                //ClearCart.Enabled = true;
                 cartHeader.Text = "Total number of products: " + cartRecords.Rows.Count;
             }
             else
             {
-                ClearCart.Enabled = false;
+                //ClearCart.Enabled = false;
                 cartHeader.Text = "There are no products";
             }
             mySqlConnectionBind.Close();
@@ -65,48 +65,48 @@ namespace Project.admin
             mySqlConnection4.Close();
         }
 
-        protected void ClearCart_Click(object sender, EventArgs e)
-        {
-            string queryDelete = "DELETE * FROM website.products";
-            //Response.Write(query);
-            try
-            {
-                MySqlConnection mySqlConnection4 = new MySqlConnection(connectionString);
-                mySqlConnection4.Open();
-                MySqlCommand delete = new MySqlCommand(queryDelete, mySqlConnection4);
-                int val = delete.ExecuteNonQuery();
-                mySqlConnection4.Close();
-                //Response.Write("DELETE VALUE = "+ val.ToString());
-                if (val == 1)
-                {
-                    ClientScript
-                       .RegisterClientScriptBlock(
-                           this.GetType(),
-                           "k",
-                           "swal('Success!', 'All Products deleted.', 'success')",
-                           true);
-                    Response.AddHeader("REFRESH", "1;URL='DeleteProduct.aspx");
-                }
-                else
-                {
-                    ClientScript
-                       .RegisterClientScriptBlock(
-                           this.GetType(),
-                           "k",
-                           "swal('Error!','Error in clearing all products.', 'error')",
-                           true);
-                    //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
-                }
-            }
-            catch (Exception Ex)
-            {
-                ClientScript
-                   .RegisterClientScriptBlock(
-                       this.GetType(),
-                       "k",
-                       "swal('Error!','Fatal error occurred.'+ Ex.Message.ToString(), 'error')",
-                       true);
-            }
-        }
+        //protected void ClearCart_Click(object sender, EventArgs e)
+        //{
+        //    string queryDelete = "DELETE * FROM website.products";
+        //    //Response.Write(query);
+        //    try
+        //    {
+        //        MySqlConnection mySqlConnection4 = new MySqlConnection(connectionString);
+        //        mySqlConnection4.Open();
+        //        MySqlCommand delete = new MySqlCommand(queryDelete, mySqlConnection4);
+        //        int val = delete.ExecuteNonQuery();
+        //        mySqlConnection4.Close();
+        //        //Response.Write("DELETE VALUE = "+ val.ToString());
+        //        if (val == 1)
+        //        {
+        //            ClientScript
+        //               .RegisterClientScriptBlock(
+        //                   this.GetType(),
+        //                   "k",
+        //                   "swal('Success!', 'All Products deleted.', 'success')",
+        //                   true);
+        //            Response.AddHeader("REFRESH", "1;URL='DeleteProduct.aspx");
+        //        }
+        //        else
+        //        {
+        //            ClientScript
+        //               .RegisterClientScriptBlock(
+        //                   this.GetType(),
+        //                   "k",
+        //                   "swal('Error!','Error in clearing all products.', 'error')",
+        //                   true);
+        //            //Response.AddHeader("REFRESH", "3;URL='AddToCart.aspx'");
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        ClientScript
+        //           .RegisterClientScriptBlock(
+        //               this.GetType(),
+        //               "k",
+        //               "swal('Error!','Fatal error occurred.'+ Ex.Message.ToString(), 'error')",
+        //               true);
+        //    }
+        //}
     }
 }
