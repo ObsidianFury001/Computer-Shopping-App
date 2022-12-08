@@ -18,4 +18,4 @@ The website features 2 modules:
 - Add products to the cart.
 - Purchase products in the cart.
 		
-![logo] (/images/logo.png)
+![logo](/images/logo.png)
