@@ -13,7 +13,6 @@ One for the administrator and for the customers.
 
 ### User Module
 ###### The user can browse and filter products at their convenience. 
-- The user can browse and filter products.
 - Add products to the cart.
 - Purchase products in the cart.
 		
