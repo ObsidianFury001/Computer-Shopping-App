@@ -121,7 +121,7 @@ namespace Project.admin
                    .RegisterClientScriptBlock(
                        this.GetType(),
                        "k",
-                       "swal('Fatal error occurred.'+ex.message.ToString(), 'success')",
+                       "swal('Fatal error occurred." + Ex.Message.ToString() +", 'success')",
                        true);
             }
             finally
