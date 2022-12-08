@@ -1,4 +1,4 @@
-# computerShoppingApp ![This is an image] (images/logo.png)
+# computerShoppingApp ![This is an image] (/images/logo.png)
 The web app is based on a company ComputerSphere, providing IT services, wholesale and retail of computer accessories, hardware and other parts. 
 
 The website features 2 modules: 
